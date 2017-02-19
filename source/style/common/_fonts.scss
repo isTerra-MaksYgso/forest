@@ -1,0 +1,57 @@
+@font-face {
+	font-family: 'Roboto-Medium';
+	src: url("../fonts/Roboto-Medium.ttf");
+}
+@font-face {
+	font-family: 'Roboto-Regular';
+	src: url("../fonts/Roboto-Regular.ttf");
+}
+@font-face {
+	font-family: 'Roboto-Bold';
+	src: url("../fonts/Roboto-Bold.ttf");
+}
+@font-face {
+	font-family: 'Roboto-BoldItalic';
+	src: url("../fonts/Roboto-BoldItalic.ttf");
+}
+@font-face {
+	font-family: 'Roboto-Light';
+	src: url("../fonts/Roboto-Light.ttf");
+}
+@font-face {
+	font-family: 'Roboto-Roboto-LightItalic';
+	src: url("../fonts/Roboto-Roboto-LightItalic.ttf");
+}
+@font-face {
+	font-family: 'Sansus-Webissimo-Regular';
+	src: url("../fonts/Sansus-Webissimo-Regular.ttf");
+}
+@mixin Roboto($style: regular) {
+	@if($style == medium){
+    	font-family: "Roboto-Medium";
+	}
+
+    @if($style == regular){
+    	font-family: "Roboto-Regular";
+    }
+
+    @if($style == bold){
+    	font-family: "Roboto-Bold";
+    }
+
+    @if($style == boldItalic){
+    	font-family: "Roboto-BoldItalic";
+    }
+
+    @if($style == light){
+    	font-family: "Roboto-Light";
+    }
+
+    @if($style == lightItalic){
+    	font-family: "Roboto-LightItalic";
+    }
+
+    @if($style == sansus){
+    	font-family: "Sansus-Webissimo-Regular";
+    }
+}

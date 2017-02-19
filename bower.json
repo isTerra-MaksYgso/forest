@@ -1,0 +1,21 @@
+{
+  "name": "forest-portfolio",
+  "description": "",
+  "main": "",
+  "authors": [
+    "M.Kolendyuk"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/isTerra-MaksYgso/gulp-fitter-of-projects",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#^5.0.0",
+    "reset-css": "^2.2.0"
+  }
+}

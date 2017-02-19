@@ -1,0 +1,91 @@
+extends ../_template
+
+block variables
+	- var title = 'Work'
+
+block content
+	header.header
+		div.main-bg
+		div.text-bg
+		ul.social.social--header
+			li.social__item.social__item--header
+				a.social__link.social__link--header(href="#")
+			li.social__item.social__item--header
+				a.social__link.social__link--header(href="#")
+			li.social__item.social__item--header
+				a.social__link.social__link--header(href="#")
+
+		div.header__menu
+		div.about-me-block
+			img.about-me-block__photo(src="", alt="my photo")
+			h2.about-me-block__title Макс Колендюк
+			p.about-me-block__caption Личный сайт веб разработчика
+
+	section.my-works
+		h1.page__title-h1 мои работы
+
+		div.my-works-block
+
+			div.my-works-itself
+				h2.page__title-h2 Work name
+				p.my-works-itself__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				a.my-works-itself__link
+					svg.my-works-itself__link-svg
+
+			div.my-works-slider
+				img.my-works-slider__img
+				div.my-works-slider__buttons
+					a.my-works-slider__buttons-next
+					a.my-works-slider__buttons-prev
+
+		div.my-works-gossip
+			h1.page__title-h1 что обо мне говорят
+
+			ul.my-works-gossip__list
+
+				li.my-works-gossip__item
+					img.my-works-gossip__item-img
+					p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					span.my-works-gossip__item-name People Name
+					span.my-works-gossip__item-position - People position
+
+				li.my-works-gossip__item
+					img.my-works-gossip__item-img
+					p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					span.my-works-gossip__item-name People Name
+					span.my-works-gossip__item-position - People position
+
+			form.contact-me-form(action="")
+				h2.page__title-h2
+
+				input.contact-me-form__input(type="text" placeholder="" name="name")
+				input.contact-me-form__input(type="email" placeholder="" name="mail")
+				textarea.contact-me-form__textarea(name="human-sms", cols="30", rows="10" placeholder="")
+
+
+	footer.footer
+		div.footer-block
+			div.footer-block-elem
+				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+
+			div.footer-block-elem
+				ul.footer-menu
+					- var footerMenuItems = ["Мои Работы", "Обо мне","Блог","Авторизация"]
+					each item in footerMenuItems
+						li.footer-menu__elem
+							a.footer-menu__elem-link(href="#")= item
+
+				ul.social.social--footer
+					li.social__item
+						a.social__link(href="#")
+					li.social__item
+						a.social__link(href="#")
+					li.social__item
+						a.social__link(href="#")
+
+			div.footer-block-elem
+				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				span.footer-block-elem__span - Lorem ipsum
+
+		div.footer-signature
+			p.footer-signature__caption © МК | создано с любовью в LoftSchool | 2017

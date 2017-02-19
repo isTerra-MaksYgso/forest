@@ -1,0 +1,50 @@
+.footer {
+	width: 100%;
+	height: 185px;
+	margin-top: -185px;
+	color: $white;
+
+	&-block {
+		height: 147px;
+		padding: 20px 0;
+		display: flex;
+		background-color: $blackGreen;
+		opacity: 0.851;
+
+		&-elem {
+			flex: 1;
+			padding: 0 30px;
+			border-left: 1px solid #757a7d;
+
+			&:first-child {
+				opacity: 0.851;
+				border-left: none;
+			}
+
+			&:last-child {
+				opacity: 0.851;
+			}
+
+			&__caption {
+				line-height: 1.625;
+			}
+
+			&__span {
+				line-height: 1.625;
+				font-weight: bold;
+			}
+		}
+	}
+
+	&-menu {
+		display: flex;
+		margin-bottom: 25px;
+		&__elem {
+			margin-right: 40px;
+
+			&:last-child{
+				margin-right: 0;
+			}
+		}
+	}
+}

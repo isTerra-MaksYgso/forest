@@ -1,0 +1,26 @@
+.wellcome-buttons {
+	height: 45px;
+	margin: 0 -21px 0 -20px;
+	@include Roboto(medium);
+	display: flex;
+	text-align: center;
+	align-items: center;
+
+	&__link {
+		display: flex;
+		height: 100%;
+		flex: 1; justify-content: center;
+		border-left: 1px solid $linkBorder;
+		color: #white;
+		background-color: $lightGreen;
+		align-items: center;
+
+		&:first-child {
+			border-left: none;
+		}
+
+		&:hover{
+			background-color: $green;
+		}
+	}
+}

@@ -1,7 +1,37 @@
 extends ../_template
 
 block variables
-  - var title = 'Home page'
+	- var title = 'Wellcome'
 
 block content
-  include ../common/_greating
+
+	div.wellcome-wrapper
+		a.autorizate-button(href="login.html") Авторизоваться
+
+		div.wellcome-box
+
+			div.about-me-block
+				img.about-me-block__photo(src="", alt="my photo")
+				h3.about-me-block__title Макс Колендюк
+				p.about-me-block__caption Личный сайт веб разработчика
+			
+			ul.social
+				-
+					var icons = [
+						['vk','#'],
+						['github','#'],
+						['in','#'],
+					]
+
+				each icon in icons
+					li.social__item
+						a.social__link(href=icon[1])
+							svg.social__icon
+								use(xlink:href='assets/img/sprite.svg#'+icon[0])
+
+			div.wellcome-buttons
+				a.wellcome-buttons__link(href="works.html") Мои работы
+				a.wellcome-buttons__link(href="about.html") Обо мне
+				a.wellcome-buttons__link(href="blog.html") Блог
+
+		p.signature © МК | создано с любовью в LoftSchool | 2017

@@ -1,0 +1,41 @@
+extends ../_template
+
+block variables
+	- var title = 'Admin'
+
+block content
+	div.admin-top-block
+		h2.page__title-h2 Панель администрирования
+		a.back-to-site Вернуться на сайт
+
+	ul.admin-tabs
+		- var tabsItems = ["TAB 1","TAB 2","TAB 3","TAB 4"]
+		each item in tabsItems
+			li.admin-tabs__item
+				a.admin-tabs__link= item
+
+	div.admin-current-block-wrapper
+		p.admin-current-block__name Page "page-name"
+
+		div.admin-current-block
+		-
+			var skillItems = {
+				Frontend: ["HTML5", "CSS3", "JavaScript & jQuery"],
+				Backend: ["PHP", "mySQL", "Node.js & npm", "Mongo.db"],
+				WorkFlow: ["Git", "Gulp","Bower"]
+			}
+		each value, key in skillItems
+			div.admin-current-block-settings
+				p.admin-settings__name= key
+				ul.admin-settings__list
+					each val in value
+						li.admin-settings__item
+							label.admin-settings__item-name= val
+								input.admin-settings__item-value(type="text")
+							span.admin-settings__item-interest %
+
+
+
+	div.admin-modal-win
+		p.admin-modal-win__caption Сообщение отправлено
+		a(href="").admin-modal-win__close

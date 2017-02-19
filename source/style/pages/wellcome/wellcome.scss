@@ -1,0 +1,29 @@
+@import '../../common/_const';
+
+@import '_wellcome-wrapper';
+
+.autorizate-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border: 1px solid #fff;
+	width: 180px;
+	height: 45px;
+	border-radius: 22.5px;
+	position: absolute;
+	@include Roboto(medium);
+	right: 100px;
+	top: 24px;
+
+	&:hover {
+		background-color: $green;
+		border-color: $lightGreen;
+	}
+}
+
+@import '_wellcome-box';
+@import '_about-me-block';
+@import '_social';
+@import '_wellcome-buttons';
+@import '_signature';

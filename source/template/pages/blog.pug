@@ -1,0 +1,73 @@
+extends ../_template
+
+block variables
+	- var title = 'Blog'
+
+block content
+	header.header
+	ul.social
+		li.social__item
+			a.social__link(href="#")
+		li.social__item
+			a.social__link(href="#")
+		li.social__item
+			a.social__link(href="#")
+
+
+	div.header__menu
+	div.about-me-block
+		img.about-me-block__photo(src="", alt="my photo")
+		h1.page__title-h1 Блог
+		p.about-me-block__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+
+	div.header__down
+
+	section.my-articles
+
+		div.my-articles-name
+			ul.my-articles__list
+			- var articleItems = ["Статья - 1","Статья - 2","Статья - 3","Статья - 4"]
+			each item in articleItems
+				li.my-articles__item= item
+
+		div.my-articles-block
+
+			div.my-articles-itself
+				h2.page__title-h2 Название 1 статьи
+				span.my-articles-itself__data какая-то дата
+				p.my-articles-itself__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				code.my-articles-itself__code какой-то код
+
+			div.my-articles-itself
+				h2.page__title-h2 Название 2 статьи
+				span.my-articles-itself__data какая-то дата
+				p.my-articles-itself__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				code.my-articles-itself__code какой-то код
+
+
+	footer.footer
+		div.footer-block
+			div.footer-block-elem
+				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+
+			div.footer-block-elem
+				ul.footer-menu
+					- var footerMenuItems = ["Мои Работы", "Обо мне","Блог","Авторизация"]
+					each item in footerMenuItems
+						li.footer-menu__elem
+							a.footer-menu__elem-link(href="#")= item
+
+				ul.social.social--footer
+					li.social__item
+						a.social__link(href="#")
+					li.social__item
+						a.social__link(href="#")
+					li.social__item
+						a.social__link(href="#")
+
+			div.footer-block-elem
+				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				span.footer-block-elem__span - Lorem ipsum
+
+		div.footer-signature
+			p.footer-signature__caption © МК | создано с любовью в LoftSchool | 2017

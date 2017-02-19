@@ -1,0 +1,45 @@
+extends ../_template
+
+block variables
+	- var title = 'Login'
+
+block content
+
+	div.wellcome-wrapper
+
+		div.wellcome-box
+			h2.page__title-h2.autorise-title Авторизуйтесь
+			form.login-form(action="")
+				label.login-form__label-box
+					div.login-form__icon
+						svg.login-form__icon-svg
+							use(xlink:href='assets/img/sprite.svg#login')
+					input.login-form__input(type="text" placeholder="Логин")
+
+				label.login-form__label-box
+					div.login-form__icon
+						svg.login-form__icon-svg
+							use(xlink:href='assets/img/sprite.svg#password')
+					input.login-form__input(type="text" placeholder="Пароль")
+
+				div.inspection-robot
+					label(id="people").inspection-robot__people-label
+						input.inspection-robot__people-input(type="checkbox" name="people")
+						| Я человек
+
+					p.inspection-robot__sure-caption Вы точно не робот?
+
+					div.inspection-robot__sure-labels
+						label.inspection-robot__sure-label()
+							input.inspection-robot__sure-input(type="radio" name="yes")
+							| Да
+
+						label.inspection-robot__sure-label()
+							input.inspection-robot__sure-input(type="radio" name="maybe")
+							| Не уверен
+
+			div.wellcome-buttons
+				a.wellcome-buttons__link(href="#") На главную
+				a.wellcome-buttons__link(href="#") Войти
+
+		p.signature © МК | создано с любовью в LoftSchool | 2017

@@ -6,6 +6,7 @@ module.exports = function() {
       .pipe($.gp.sourcemaps.init())
       .pipe($.gp.sass()).on('error', $.gp.notify.onError({ title: 'Style' }))
       .pipe($.gp.autoprefixer({ browsers: $.config.autoprefixerConfig }))
+      .pipe($.gp.csso())
       .pipe($.gp.sourcemaps.write())
       .pipe($.gulp.dest($.config.root + '/assets/css'))
       .pipe($.browserSync.stream());

@@ -1,0 +1,38 @@
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 600px;
+	position: relative;
+	overflow: hidden;
+
+	&__down {
+		width: 26px;
+		height: 16px;
+		margin-bottom: 70px;
+		cursor: pointer;
+
+		&-icon {
+			width: 100%;
+			height: 100%;
+			fill: $grey;
+
+			&:hover {
+				fill: $white;
+			}
+		}
+	}
+}
+
+.header-main-bg{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+	margin: auto;
+	background-image: url("../img/water.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}

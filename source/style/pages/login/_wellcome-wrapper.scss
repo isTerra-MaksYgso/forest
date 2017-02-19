@@ -1,0 +1,8 @@
+.wellcome-wrapper {
+	display: flex; flex-direction: column;
+	height: 100%; color: $white;
+	background-image: url("../img/water.jpg");
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}

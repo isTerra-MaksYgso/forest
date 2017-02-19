@@ -1,0 +1,18 @@
+.signature {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.footer-signature {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 0;
+	height: 38px;
+	background-color: $green;
+	opacity: 0.851;
+
+	&__caption {
+		opacity: 0.851;
+	}
+}

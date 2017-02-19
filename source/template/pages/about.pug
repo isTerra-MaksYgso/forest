@@ -1,0 +1,166 @@
+extends ../_template
+
+block variables
+	- var title = 'About me'
+
+block content
+	header.header
+		div.header-main-bg
+		div.header-text-bg
+			svg.header-text-bg__about
+				use(xlink:href='assets/img/sprite.svg#portfolio_header')
+
+		ul.social.social--header
+			-
+				var icons = [
+					['vk','#'],
+					['github','#'],
+					['in','#'],
+				]
+
+			each icon in icons
+				li.social__item.social__item--header
+					a.social__link.social__link--header(href=icon[1])
+						svg.social__icon.social__icon--header
+							use(xlink:href='assets/img/sprite.svg#'+icon[0])
+
+		div.header__menu
+			svg.header__menu-icon
+				use(xlink:href='assets/img/sprite.svg#hamburger')
+		div.about-me-block
+			img.about-me-block__photo(src="", alt="my photo")
+			h2.about-me-block__title Макс Колендюк
+			p.about-me-block__caption Личный сайт веб разработчика
+
+		div.header__down
+			svg.header__down-icon
+				use(xlink:href='assets/img/sprite.svg#portf_arrow_down')
+		
+	section.about-me-more
+		div.about-me-left-section
+			svg(viewbox="0 0 900 160" preserveAspectRetion="none").about-me-left-triangle
+				polygon(points="0,0 0,160, 900,160")
+
+			div.about-me-left-section__title
+				h1.page__title-h1.page__title-h1--black обо мне
+
+			div.about-me-article
+				img.about-me-article__photo(src="assets/img/about-photo.png", alt="my photo")
+				h2.page__title-h2.page__title-h2--black кто я
+				p.about-me-article__caption.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				p.about-me-article__caption.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				
+		div.about-me-skills
+			svg(viewbox="0 0 900 160" preserveAspectRetion="none").about-me-right-triangle
+				polygon(points="0,160 900,160, 900,0")
+
+			h2.page__title-h2.page__title-h2--black чем я могу быть вам полезен
+
+			p.about-me-skills__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea totam deleniti odio asperiores quibusdam, voluptas voluptates. Dolore ipsam eum dolores similique, ea voluptas veniam reprehenderit numquam sequi nihil, temporibus excepturi.
+			
+			div.skills-group
+				-
+					var skillItems = [
+						{	section: 'Frontend', 
+							sectionItems: [
+								{title: 'HTML5', value: 75},
+								{title: 'CSS3', value: 75},
+								{title: 'JavaScript & jQuery', value: 75}
+						]},
+						{	section: 'Backend',
+							sectionItems: [
+								{title: 'PHP', value: 75},
+								{title: 'mySQL', value: 75},
+								{title: 'Node.js & npm', value: 75},
+								{title: 'Mongo.db', value: 75}
+						]},
+						{	section: 'WorkFlow',
+							sectionItems: [
+								{title: 'Git', value: 75},
+								{title: 'Gulp', value: 75},
+								{title: 'Bower', value: 75}
+						]}
+					]
+				each item in skillItems
+					ul.my-skills
+						p.my-skills__title= item.section
+						ul.my-skills__list
+							each item2 in item.sectionItems
+								li.my-skills__circle
+									svg.my-skills__circle-svg
+										circle(cx="60" cy="60" r="50").my-skills__circle-svg-under
+										circle(cx="60" cy="60" r="50").my-skills__circle-svg-above
+									span.my-skills__circle-span= item2.title
+
+	section.about-me-map
+
+		div.about-me-contacts
+			h2.page__title-h2.page__title-h2--black Контакты
+			
+			ul.about-me-contacts-list
+				-
+
+					var contactsItems = [
+						{
+							title: 'mySkype',
+							iconName: 'skype'
+						},
+						{
+							title: '@gmail.com',
+							iconName: 'envelope'
+						},
+						{
+							title: '+38000000000',
+							iconName: 'phone'
+						},
+						{
+							title: 'Где-то там в далеке',
+							iconName: 'map_marker'
+						}
+					]
+				each item in contactsItems
+					li.about-me-contacts-list-elem
+						svg.about-me-contacts-list__elem-icon(src="", alt="")
+							use(xlink:href='assets/img/sprite.svg#'+item.iconName)
+						span.about-me-contacts-list__elem-text= item.title
+
+	footer.footer
+		div.footer-block
+			div.footer-block-elem
+				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+
+			div.footer-block-elem
+				ul.footer-menu
+					- var footerMenuItems = ["Мои Работы", "Обо мне","Блог","Авторизация"]
+					each item in footerMenuItems
+						li.footer-menu__elem
+							a.footer-menu__elem-link(href="#")= item
+
+
+				ul.social.social--footer
+					-
+						var icons = [
+							['vk','#'],
+							['github','#'],
+							['in','#'],
+						]
+
+					each icon in icons
+						li.social__item.social__item--footer
+							a.social__link.social__link--footer(href=icon[1])
+								svg.social__icon.social__icon--footer
+									use(xlink:href='assets/img/sprite.svg#'+icon[0])
+
+			div.footer-block-elem
+				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				span.footer-block-elem__span - Lorem ipsum
+
+		div.footer-signature
+			p.footer-signature__caption © МК | создано с любовью в LoftSchool | 2017

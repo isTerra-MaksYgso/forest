@@ -1,0 +1,190 @@
+@import '../../common/_const';
+
+@import '_header';
+
+
+@import '_social';
+@import '_header-menu';
+@import '_about-me-block';
+
+.header-text-bg {
+	height: auto;
+    top: 42%;
+    transform: translateY(-50%);
+    position: absolute;
+
+	&__about {
+		width: 65rem;
+    	height: 18rem;
+    	fill: $white;
+		fill-opacity: 0.1;
+	}
+}
+
+.about-me-more {
+	height: auto;
+	display: flex;
+	margin-top: -160px;
+	padding-top: 160px;
+	color: $swampGreen;
+}
+
+.about-me-left-section {
+	width: 50%;
+	padding: 20px 20px 0 0;
+	position: relative;
+	background-color: #ebefe2;
+
+	&__title {
+		float: left;
+		position: relative;
+		width: 50%;
+		padding-top: 80px;
+	    margin-top: -80px;
+	    background-image: url("../img/about_header.svg");
+	    background-size: 350px;
+	    background-repeat: no-repeat;
+	    background-position: center center;
+	}
+}
+
+.about-me-left-triangle {
+	fill: #ebefe2;
+	bottom: 100%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.about-me-right-triangle {
+	fill: #f4f5f0;
+	bottom: 100%;
+    position: absolute;
+    width: 100%;
+    right: 0;
+}
+
+.about-me-article {
+	width: 50%;
+	float: left;
+
+	&__photo {
+		display: block;
+		margin: 0 auto 42px auto;
+		max-width: 435px;
+		height: 390px;
+	}
+
+	&__caption {
+		margin-bottom: 20px;
+		line-height: 1.5;
+	}
+
+}
+
+.about-me-skills {
+	width: 50%;
+	padding: 20px 0 0 40px;
+	background-color: #f4f5f0;
+	position: relative;
+
+	&__caption {
+		margin: 70px 0 0 0;
+		line-height: 1.5;
+	}
+}
+
+.skills-group {
+	margin-top: 55px;
+	@include Roboto(medium);
+
+}
+
+.my-skills {
+
+	&__title {
+		margin-bottom: 20px;
+	}
+
+	&__list {
+		display: flex;
+		margin-bottom: 40px;
+	}
+
+	&__circle {
+		position: relative;
+		width: 120px;
+    	height: 120px;
+    	margin-right: 40px;
+
+    	&:last-child {
+    		margin-right: 0;
+    	}
+		
+		&-svg {
+			width: 120px;
+			height: 120px;
+			display: block;
+			fill: transparent;
+			stroke-width: 15px;
+
+			&-above {
+				stroke: $green;
+			}
+
+			&-under {
+				stroke: #dfdcd5;
+			}
+		}
+
+		&-span {
+			position: absolute;
+		    top: 50%;
+	    	left: 50%;
+		    transform: translate(-50%, -50%);
+		    color: $green;
+		    text-align: center;
+		}
+	}
+}
+
+.about-me-map {
+	display: flex;
+	position: relative;
+	height: 1110px;
+	background-color: grey;
+}
+
+.about-me-contacts {
+	margin: auto;
+	padding: 35px 40px;
+	max-width: 380px;
+	width: 100%;
+	height: auto;
+	background-color: #e4e9de;
+	opacity: 0.851;
+
+	&-list {
+
+		&-elem {
+			margin-bottom: 25px;
+		}
+
+		&__elem-icon {
+			width: 25px;
+			height: 25px;
+			margin-right: 10px;
+			vertical-align: middle;
+			fill: $lightGreen;
+		}
+
+		&__elem-text {
+			@include Roboto(medium);
+		}
+	}
+}
+
+
+
+@import '_footer';
+@import '_signature';
