@@ -1,11 +1,11 @@
 @import '../../common/_const';
 
 @import '_header';
-
-
 @import '_social';
 @import '_header-menu';
 @import '_about-me-block';
+@import '_footer';
+@import '_signature';
 
 .header-text-bg {
 	height: auto;
@@ -41,10 +41,23 @@
 		width: 50%;
 		padding-top: 80px;
 	    margin-top: -80px;
-	    background-image: url("../img/about_header.svg");
-	    background-size: 350px;
-	    background-repeat: no-repeat;
-	    background-position: center center;
+
+	    @include w1200 {
+	    	float: none;
+	    	margin: auto;
+	    	padding-top: 0;
+	    }
+	}
+
+	&__icon {
+		position: absolute;
+	    fill: #93c42e;
+	    fill-opacity: 0.1;
+	    width: 360px;
+	    height: 120px;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
 	}
 }
 
@@ -67,6 +80,13 @@
 .about-me-article {
 	width: 50%;
 	float: left;
+
+	@include w1200 {
+		float: none;
+		margin: auto;
+		max-width: 443px;
+		width: 100%;
+	}
 
 	&__photo {
 		display: block;
@@ -91,6 +111,7 @@
 	&__caption {
 		margin: 70px 0 0 0;
 		line-height: 1.5;
+		padding-right: 20px;
 	}
 }
 
@@ -163,6 +184,7 @@
 	height: auto;
 	background-color: #e4e9de;
 	opacity: 0.851;
+	border-radius: 5px;
 
 	&-list {
 
@@ -183,8 +205,3 @@
 		}
 	}
 }
-
-
-
-@import '_footer';
-@import '_signature';

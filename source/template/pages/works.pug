@@ -4,63 +4,90 @@ block variables
 	- var title = 'Work'
 
 block content
-	header.header
-		div.main-bg
-		div.text-bg
+	header.header.header-blog
+		div.header-main-bg
+		div.header-text-bg
+			+svgMix("header-text-bg__about","portfolio_header")
+
 		ul.social.social--header
-			li.social__item.social__item--header
-				a.social__link.social__link--header(href="#")
-			li.social__item.social__item--header
-				a.social__link.social__link--header(href="#")
-			li.social__item.social__item--header
-				a.social__link.social__link--header(href="#")
+			-
+				var icons = [
+					{title: 'vk', href: '#'},
+					{title: 'github', href: '#'},
+					{title: 'in', href: '#'},
+				]
+
+			each icon in icons
+				li.social__item.social__item--header
+					a.social__link.social__link--header(href=icon.href)
+						+svgMix("social__icon social__icon--header", icon.title)
 
 		div.header__menu
+			+svgMix("header__menu-icon", 'hamburger')
+
 		div.about-me-block
 			img.about-me-block__photo(src="", alt="my photo")
 			h2.about-me-block__title Макс Колендюк
 			p.about-me-block__caption Личный сайт веб разработчика
 
+		div.header__down
+			+svgMix("header__down-icon","portf_arrow_down")
+
 	section.my-works
-		h1.page__title-h1 мои работы
+
+		+svgMix("my-works-triangles","bg_blog")
+
+		div.my-works__title
+			+svgMix("my-works__title-icon","works_header")
+			h1.page__title-h1 мои работы
 
 		div.my-works-block
 
 			div.my-works-itself
-				h2.page__title-h2 Work name
+				h2.page__title-h2.page__title-h2--black Сайт школы онлайн образования
 				p.my-works-itself__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				a.my-works-itself__link
-					svg.my-works-itself__link-svg
+				a.my-works-itself__link Посмотреть сайт
+					+svgMix("my-works-itself__link-icon","link")
 
 			div.my-works-slider
-				img.my-works-slider__img
+				div.my-works__title-slide
+					img(src="assets/img/forest_works.png", alt="work photo").my-works-slider__img
 				div.my-works-slider__buttons
 					a.my-works-slider__buttons-next
+						+svgMix("slider__buttons-icon","portf_arrow_down")
 					a.my-works-slider__buttons-prev
+						+svgMix("slider__buttons-icon","portf_arrow_up")
 
-		div.my-works-gossip
-			h1.page__title-h1 что обо мне говорят
+	section.my-works-gossip
+		h1.page__title-h1.page__title-h1--black что обо мне говорят
+		+svgMix("my-works-gossip__icon","about_header")
 
-			ul.my-works-gossip__list
+		div.my-works-gossip__list
 
-				li.my-works-gossip__item
-					img.my-works-gossip__item-img
-					p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					span.my-works-gossip__item-name People Name
-					span.my-works-gossip__item-position - People position
+			div.my-works-gossip__item
+				img.my-works-gossip__item-img
+				p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				span.my-works-gossip__item-name People Name
+				span.my-works-gossip__item-position - People position
 
-				li.my-works-gossip__item
-					img.my-works-gossip__item-img
-					p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					span.my-works-gossip__item-name People Name
-					span.my-works-gossip__item-position - People position
+			div.my-works-gossip__item
+				img.my-works-gossip__item-img
+				p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				span.my-works-gossip__item-name People Name
+				span.my-works-gossip__item-position - People position
 
-			form.contact-me-form(action="")
-				h2.page__title-h2
+		form.contact-me-form(action="")
+			h2.page__title-h2.page__title-h2--black связаться со мной
 
-				input.contact-me-form__input(type="text" placeholder="" name="name")
-				input.contact-me-form__input(type="email" placeholder="" name="mail")
-				textarea.contact-me-form__textarea(name="human-sms", cols="30", rows="10" placeholder="")
+			input.contact-me-form__input(type="text" placeholder="Имя" name="name")
+			input.contact-me-form__input(type="email" placeholder="Email" name="mail")
+			textarea.contact-me-form__textarea(name="human-sms", cols="30", rows="10" placeholder="Ваше сообщение")
+			div.contact-me-form__buttons
+				a(href="#").contact-me-form__link Отправить
+				a(href="#").contact-me-form__link Очистить
+
+		div.go-top
+			+svgMix("go-top__icon","portf_arrow_up")
 
 
 	footer.footer
@@ -76,12 +103,17 @@ block content
 							a.footer-menu__elem-link(href="#")= item
 
 				ul.social.social--footer
-					li.social__item
-						a.social__link(href="#")
-					li.social__item
-						a.social__link(href="#")
-					li.social__item
-						a.social__link(href="#")
+					-
+						var icons = [
+							{title: 'vk', href: '#'},
+							{title: 'github', href: '#'},
+							{title: 'in', href: '#'},
+						]
+
+					each icon in icons
+						li.social__item.social__item--footer
+							a.social__link.social__link--footer(href=icon.href)
+								+svgMix("social__icon social__icon--footer", icon.title)
 
 			div.footer-block-elem
 				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.

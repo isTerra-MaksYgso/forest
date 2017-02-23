@@ -17,4 +17,17 @@
 		margin-bottom: 35px;
 		color: $mainText;
 	}
+
+	&--blog {
+		> h1 {
+			color: $white;
+			margin: 0 auto 60px;
+		    text-transform: uppercase;
+		    font-family: "Sansus-Webissimo-Regular";
+
+		    &:after {
+		    	bottom: -30px;
+		    }
+		}
+	}
 }

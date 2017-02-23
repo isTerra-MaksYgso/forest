@@ -1,17 +1,19 @@
 .social {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	height: auto;
 	text-align: center;
 	margin: 0 auto 40px auto;
+	max-width: 150px;
+	width: 100%;
+
+	@include w1200 {
+		max-width: 140px;
+	}
 
 	&__item {
-		margin-right: 30px;
-		
-		&:last-child {
-			margin-right: 0;
-		}
+
 	}
 
 	&__link {
@@ -47,9 +49,9 @@
 
 	&--header {
 		position: absolute;
-		margin-bottom: 0;
 		top: 32px;
 		left: 30px;
+		margin-bottom: 0;
 
 		&:last-child {
 			margin-right: 0;
@@ -57,7 +59,13 @@
 	}
 
 	&--footer {
-		justify-content: flex-start;
 		margin-bottom: 0;
+		float: left;
+	}
+}
+
+.social-header--blog {
+	@include w1200 {
+		display: none !important;
 	}
 }

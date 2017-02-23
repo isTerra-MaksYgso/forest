@@ -19,8 +19,12 @@
 	src: url("../fonts/Roboto-Light.ttf");
 }
 @font-face {
-	font-family: 'Roboto-Roboto-LightItalic';
-	src: url("../fonts/Roboto-Roboto-LightItalic.ttf");
+	font-family: 'Roboto-LightItalic';
+	src: url("../fonts/Roboto-LightItalic.ttf");
+}
+@font-face {
+	font-family: 'Roboto-Italic';
+	src: url("../fonts/Roboto-Italic.ttf");
 }
 @font-face {
 	font-family: 'Sansus-Webissimo-Regular';
@@ -49,6 +53,10 @@
 
     @if($style == lightItalic){
     	font-family: "Roboto-LightItalic";
+    }
+
+    @if($style == italic){
+    	font-family: "Roboto-Italic";
     }
 
     @if($style == sansus){

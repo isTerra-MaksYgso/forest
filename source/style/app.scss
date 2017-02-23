@@ -1,6 +1,9 @@
 @import 'pages/wellcome/wellcome';
 @import 'pages/login/login';
 @import 'pages/about/about';
+@import 'pages/blog/blog';
+@import 'pages/works/works';
+@import 'common/_const';
 
 /* My reset style */
 * {
@@ -35,40 +38,60 @@ ul, li {
 	position: relative;
 	color: $blackGreen;
 
-	&:after {		
+	&:after {
+		content: "";
+		width: 88px;
+		height: 3px;
+		background-color: $white;
+		display: block;
+		position: absolute;
+		left: 50%;
+		margin-left: -44px;
 		bottom: -35px;
 	}
-
 }
 .page__title-h2 {
 	margin: 40px auto;
 	position: relative;
 	color: $swampGreen;
 
-	&:after {		
+	&:after {
+		content: "";
+		width: 88px;
+		height: 3px;
+		background-color: $white;
+		display: block;
+		position: absolute;
+		left: 50%;
+		margin-left: -44px;
 		bottom: -20px;
 	}
 }
-.page__title-h2:after, .page__title-h1:after {
-	content: "";
-	width: 88px;
-	height: 3px;
-	background-color: $white;
-	display: block;
-	position: absolute;
-	left: 50%;
-	margin-left: -44px;
-}
-
-.page__title-h2--black, .page__title-h1--black {
-	margin: 0 auto 60px auto;
+.page__title-h1--black {
+	margin: 0 auto 40px auto;
 	text-transform: uppercase;
 	@include Roboto(sansus);
-}
 
-.page__title-h2--black:after, .page__title-h1--black:after {
-	background-color: $blackGreen;
-	bottom: -30px;
+	&:after {
+		display: block;
+		background-color: $blackGreen !important;
+		bottom: -20px;
+	}
+}
+.page__title-h2--black,{
+	margin: 0 auto 60px auto !important;
+	text-transform: uppercase;
+	@include Roboto(sansus);
+
+	&:after {
+		display: block;
+		background-color: $blackGreen !important;
+		bottom: -30px !important;
+	}
+
+	@include w1200 {
+		max-width: 254px;
+	}
 }
 
 .about-me-block__title {
@@ -80,6 +103,9 @@ html {
 	height: 100%;
 	width: 100%;
 	font-size: 16px;
+	@include w768 {
+		font-size: 14px;
+	}
 }
 body {
 	max-width: 1800px;
@@ -87,5 +113,4 @@ body {
 	height: 100%;
 	margin: auto;
 	@include Roboto(regular);
-	font-size: 16px;
 }

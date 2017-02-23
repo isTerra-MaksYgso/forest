@@ -7,34 +7,31 @@ block content
 	header.header
 		div.header-main-bg
 		div.header-text-bg
-			svg.header-text-bg__about
-				use(xlink:href='assets/img/sprite.svg#portfolio_header')
+			+svgMix("header-text-bg__about","portfolio_header")
 
 		ul.social.social--header
 			-
 				var icons = [
-					['vk','#'],
-					['github','#'],
-					['in','#'],
+					{title: 'vk', href: '#'},
+					{title: 'github', href: '#'},
+					{title: 'in', href: '#'},
 				]
 
 			each icon in icons
 				li.social__item.social__item--header
-					a.social__link.social__link--header(href=icon[1])
-						svg.social__icon.social__icon--header
-							use(xlink:href='assets/img/sprite.svg#'+icon[0])
+					a.social__link.social__link--header(href=icon.href)
+						+svgMix("social__icon social__icon--header", icon.title)
 
 		div.header__menu
-			svg.header__menu-icon
-				use(xlink:href='assets/img/sprite.svg#hamburger')
+			+svgMix("header__menu-icon", 'hamburger')
+
 		div.about-me-block
 			img.about-me-block__photo(src="", alt="my photo")
 			h2.about-me-block__title Макс Колендюк
 			p.about-me-block__caption Личный сайт веб разработчика
 
 		div.header__down
-			svg.header__down-icon
-				use(xlink:href='assets/img/sprite.svg#portf_arrow_down')
+			+svgMix("header__down-icon","portf_arrow_down")
 		
 	section.about-me-more
 		div.about-me-left-section
@@ -42,6 +39,7 @@ block content
 				polygon(points="0,0 0,160, 900,160")
 
 			div.about-me-left-section__title
+				+svgMix("about-me-left-section__icon","about_header")
 				h1.page__title-h1.page__title-h1--black обо мне
 
 			div.about-me-article
@@ -127,16 +125,16 @@ block content
 					]
 				each item in contactsItems
 					li.about-me-contacts-list-elem
-						svg.about-me-contacts-list__elem-icon(src="", alt="")
+						svg.about-me-contacts-list__elem-icon
 							use(xlink:href='assets/img/sprite.svg#'+item.iconName)
 						span.about-me-contacts-list__elem-text= item.title
 
 	footer.footer
 		div.footer-block
-			div.footer-block-elem
+			div.footer-block-elem.footer-element--light
 				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 
-			div.footer-block-elem
+			div.footer-block-elem.footer-element--medium
 				ul.footer-menu
 					- var footerMenuItems = ["Мои Работы", "Обо мне","Блог","Авторизация"]
 					each item in footerMenuItems
@@ -147,18 +145,17 @@ block content
 				ul.social.social--footer
 					-
 						var icons = [
-							['vk','#'],
-							['github','#'],
-							['in','#'],
+							{title: 'vk', href: '#'},
+							{title: 'github', href: '#'},
+							{title: 'in', href: '#'},
 						]
 
 					each icon in icons
 						li.social__item.social__item--footer
-							a.social__link.social__link--footer(href=icon[1])
-								svg.social__icon.social__icon--footer
-									use(xlink:href='assets/img/sprite.svg#'+icon[0])
+							a.social__link.social__link--footer(href=icon.href)
+								+svgMix("social__icon social__icon--footer", icon.title)
 
-			div.footer-block-elem
+			div.footer-block-elem.footer-element--lightItalic
 				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				span.footer-block-elem__span - Lorem ipsum
 

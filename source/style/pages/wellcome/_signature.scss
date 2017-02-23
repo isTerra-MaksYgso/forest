@@ -11,6 +11,7 @@
 	height: 38px;
 	background-color: $green;
 	opacity: 0.851;
+	@include Roboto(light);
 
 	&__caption {
 		opacity: 0.851;

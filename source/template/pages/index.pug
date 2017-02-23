@@ -4,7 +4,6 @@ block variables
 	- var title = 'Wellcome'
 
 block content
-
 	div.wellcome-wrapper
 		a.autorizate-button(href="login.html") Авторизоваться
 
@@ -18,16 +17,15 @@ block content
 			ul.social
 				-
 					var icons = [
-						['vk','#'],
-						['github','#'],
-						['in','#'],
+						{title: 'vk', href: '#'},
+						{title: 'github', href: '#'},
+						{title: 'in', href: '#'},
 					]
 
 				each icon in icons
 					li.social__item
-						a.social__link(href=icon[1])
-							svg.social__icon
-								use(xlink:href='assets/img/sprite.svg#'+icon[0])
+						a.social__link(href=icon.href)
+							+svgMix("social__icon", icon.title)
 
 			div.wellcome-buttons
 				a.wellcome-buttons__link(href="works.html") Мои работы
