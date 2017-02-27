@@ -11,7 +11,6 @@
 .my-articles {
 	background-color: $beige;
 	position: relative;
-	padding-bottom: 185px;
 	display: flex;
 	padding-top: 60px;
 	color: rgb(69, 90, 100);
@@ -35,6 +34,10 @@
 
 		@include w1200 {
 			max-width: 300px;
+		}
+
+		@include w768 {
+			display: none;
 		}
 	}
 
@@ -67,7 +70,16 @@
 		width: 100%;
 
 		@include w1200 {
-			max-width: 680px;
+			padding-right: 40px;
+		}
+
+		@include w768 {
+			max-width: 100%;
+			padding: 0 24px;
+		}
+
+		@include w460 {
+			background-color: $white;
 		}
 	}
 

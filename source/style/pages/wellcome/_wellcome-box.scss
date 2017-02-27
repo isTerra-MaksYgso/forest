@@ -10,4 +10,8 @@
 	.page__title-h2{
 		color: $white;
 	}
+
+	@include w460 {
+		max-width: calc(300px/(13/16));
+	}
 }

@@ -26,14 +26,15 @@ block content
 			+svgMix("header__menu-icon", 'hamburger')
 
 		div.about-me-block
-			img.about-me-block__photo(src="", alt="my photo")
+			img.about-me-block__photo(src="assets/img/5093.jpg", alt="my photo")
 			h2.about-me-block__title Макс Колендюк
 			p.about-me-block__caption Личный сайт веб разработчика
 
-		div.header__down
+		div.header__down.header__down--about
 			+svgMix("header__down-icon","portf_arrow_down")
 		
 	section.about-me-more
+		+svgMix("about-me-more-triangles","bg_blog")
 		div.about-me-left-section
 			svg(viewbox="0 0 900 160" preserveAspectRetion="none").about-me-left-triangle
 				polygon(points="0,0 0,160, 900,160")
@@ -61,7 +62,7 @@ block content
 
 			h2.page__title-h2.page__title-h2--black чем я могу быть вам полезен
 
-			p.about-me-skills__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea totam deleniti odio asperiores quibusdam, voluptas voluptates. Dolore ipsam eum dolores similique, ea voluptas veniam reprehenderit numquam sequi nihil, temporibus excepturi.
+			p.about-me-skills__caption Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
 			
 			div.skills-group
 				-
@@ -97,67 +98,71 @@ block content
 										circle(cx="60" cy="60" r="50").my-skills__circle-svg-above
 									span.my-skills__circle-span= item2.title
 
-	section.about-me-map
+	section.about-me-map-wrapper
 
-		div.about-me-contacts
-			h2.page__title-h2.page__title-h2--black Контакты
-			
-			ul.about-me-contacts-list
-				-
+		div.about-me-map
 
-					var contactsItems = [
-						{
-							title: 'mySkype',
-							iconName: 'skype'
-						},
-						{
-							title: '@gmail.com',
-							iconName: 'envelope'
-						},
-						{
-							title: '+38000000000',
-							iconName: 'phone'
-						},
-						{
-							title: 'Где-то там в далеке',
-							iconName: 'map_marker'
-						}
-					]
-				each item in contactsItems
-					li.about-me-contacts-list-elem
-						svg.about-me-contacts-list__elem-icon
-							use(xlink:href='assets/img/sprite.svg#'+item.iconName)
-						span.about-me-contacts-list__elem-text= item.title
-
-	footer.footer
-		div.footer-block
-			div.footer-block-elem.footer-element--light
-				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-
-			div.footer-block-elem.footer-element--medium
-				ul.footer-menu
-					- var footerMenuItems = ["Мои Работы", "Обо мне","Блог","Авторизация"]
-					each item in footerMenuItems
-						li.footer-menu__elem
-							a.footer-menu__elem-link(href="#")= item
-
-
-				ul.social.social--footer
+			div.about-me-contacts
+				h2.page__title-h2.page__title-h2--black Контакты
+				
+				ul.about-me-contacts-list
 					-
-						var icons = [
-							{title: 'vk', href: '#'},
-							{title: 'github', href: '#'},
-							{title: 'in', href: '#'},
+
+						var contactsItems = [
+							{
+								title: 'mySkype',
+								iconName: 'skype'
+							},
+							{
+								title: '@gmail.com',
+								iconName: 'envelope'
+							},
+							{
+								title: '+38000000000',
+								iconName: 'phone'
+							},
+							{
+								title: 'Где-то там в далеке',
+								iconName: 'map_marker'
+							}
 						]
+					each item in contactsItems
+						li.about-me-contacts-list-elem
+							svg.about-me-contacts-list__elem-icon
+								use(xlink:href='assets/img/sprite.svg#'+item.iconName)
+							span.about-me-contacts-list__elem-text= item.title
 
-					each icon in icons
-						li.social__item.social__item--footer
-							a.social__link.social__link--footer(href=icon.href)
-								+svgMix("social__icon social__icon--footer", icon.title)
+		div.footer
+			div.footer-block
+				div.footer-block-elem.footer-element--light
+					p.footer-block-elem__caption Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
 
-			div.footer-block-elem.footer-element--lightItalic
-				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				span.footer-block-elem__span - Lorem ipsum
+				div.footer-block-elem.footer-element--bold
+					ul.footer-menu
+						- var footerMenuItems = ["Мои Работы", "Обо мне","Блог","Авторизация"]
+						each item in footerMenuItems
+							li.footer-menu__elem
+								a.footer-menu__elem-link(href="#")= item
 
-		div.footer-signature
-			p.footer-signature__caption © МК | создано с любовью в LoftSchool | 2017
+
+					ul.social.social--footer
+						-
+							var icons = [
+								{title: 'vk', href: '#'},
+								{title: 'github', href: '#'},
+								{title: 'in', href: '#'},
+							]
+
+						each icon in icons
+							li.social__item.social__item--footer
+								a.social__link.social__link--footer(href=icon.href)
+									+svgMix("social__icon social__icon--footer", icon.title)
+
+				div.footer-block-elem.footer-element--lightItalic
+					p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					span.footer-block-elem__span - Lorem ipsum
+
+			div.footer-signature
+				span.footer-signature__autor © МК
+				p.footer-signature__caption.
+					создано с любовью в LoftSchool | 2017

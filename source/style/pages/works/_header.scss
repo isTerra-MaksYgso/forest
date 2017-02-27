@@ -22,11 +22,53 @@
 			&:hover {
 				fill: $white;
 			}
+
+			@include w768 {
+				fill: #fff;
+			}
 		}
+
+		&--blog {
+			display: none;
+
+			@include w768 {
+				display: block;
+			}
+		}
+
+		&--about {
+			@include w1000 {
+				margin-bottom: 100px;
+			}
+		}
+
+		@include w680 {
+			margin-bottom: calc(50px/0.875);
+		}
+
+		@include w460 {
+			margin-bottom: calc(60px/0.875);
+		}
+	}
+	
+	@include w1199 {
+		height: calc(468px/0.875) !important;
+	}
+
+	@include w768 {
+		height: calc(504px/0.875) !important;
+	}
+
+	@include w680 {
+		height: calc(558px/0.875) !important;
+	}
+
+	@include w320 {
+		height: calc(558px/0.875) !important;
 	}
 
 	&-blog {
-		height: 438px !important;
+		height: 438px;
 	}
 }
 
@@ -52,5 +94,19 @@
 
 	&--blog {
 		top: 58%;
+	}
+
+	@include w1199 {
+		width: 90%;
+	}
+
+	@include w460 {
+		display: none;
+	}
+
+	&__about {
+		@include w1199 {
+			width: 100%;
+		}		
 	}
 }

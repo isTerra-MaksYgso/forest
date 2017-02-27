@@ -30,4 +30,14 @@
 		    }
 		}
 	}
+
+	&__title {
+		@include w460 {
+			margin-bottom: 10px;
+		}
+	}
+
+	@include w460 {
+		width: 100% !important;
+	}
 }

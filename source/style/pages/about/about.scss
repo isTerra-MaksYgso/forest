@@ -27,6 +27,29 @@
 	margin-top: -160px;
 	padding-top: 160px;
 	color: $swampGreen;
+	position: relative;
+
+	&-triangles {
+		display: none;
+		position: absolute;
+		fill: $beigeGreen;
+		top: 0;
+		width: 100%;
+		height: 280px;
+	    transform: translateY(-20px);
+
+		@include w1000 {
+			display: block;
+		}
+
+		@include w768 {
+			transform: translateY(20px);
+		}
+	}
+
+	@include w1000 {
+		flex-direction: column;
+	}
 }
 
 .about-me-left-section {
@@ -58,6 +81,18 @@
 	    top: 50%;
 	    left: 50%;
 	    transform: translate(-50%, -50%);
+
+	    @include w460 {
+	    	width: 195px;
+	    }
+	}
+
+	@include w1000 {
+		width: 100%;
+	}
+
+	@include w460 {
+		padding: 20px 0 0 0;
 	}
 }
 
@@ -67,6 +102,10 @@
     position: absolute;
     width: 100%;
     left: 0;
+
+    @include w1000 {
+    	display: none;
+    }
 }
 
 .about-me-right-triangle {
@@ -75,6 +114,10 @@
     position: absolute;
     width: 100%;
     right: 0;
+
+    @include w1000 {
+    	display: none;
+    }
 }
 
 .about-me-article {
@@ -93,11 +136,19 @@
 		margin: 0 auto 42px auto;
 		max-width: 435px;
 		height: 390px;
+
+		@include w460 {
+			max-width: 100%;
+		}
 	}
 
 	&__caption {
 		margin-bottom: 20px;
 		line-height: 1.5;
+
+		@include w460 {
+			padding: 0 10px;
+		}
 	}
 
 }
@@ -112,6 +163,27 @@
 		margin: 70px 0 0 0;
 		line-height: 1.5;
 		padding-right: 20px;
+
+		@include w1000 {
+			max-width: 472px;
+			margin-top: 0;
+		}
+
+		@include w460 {
+			text-align: left;
+		}
+	}
+
+	@include w1000 {
+		width: 100%;
+	    text-align: center;
+	    display: flex;
+    	flex-direction: column;
+    	align-items: center;
+	}
+
+	@include w1000 {
+		padding: 20px 10px 0 10px;
 	}
 }
 
@@ -125,11 +197,20 @@
 
 	&__title {
 		margin-bottom: 20px;
+
+		@include w1000 {
+			font-size: 20px;
+		}
 	}
 
 	&__list {
 		display: flex;
 		margin-bottom: 40px;
+
+		@include w1000 {
+		    display: flex;
+    		justify-content: center;
+		}
 	}
 
 	&__circle {
@@ -171,9 +252,22 @@
 
 .about-me-map {
 	display: flex;
+	flex-direction: column;
 	position: relative;
 	height: 1110px;
-	background-color: grey;
+
+	&-wrapper {
+		background-color: grey;
+	}
+
+	@include w768 {
+		height: calc(634px/0.875);
+	}
+
+	@include w460 {
+		height: auto;
+    	background-color: rgba(225,225,225,0.6);
+	}
 }
 
 .about-me-contacts {
@@ -203,5 +297,12 @@
 		&__elem-text {
 			@include Roboto(medium);
 		}
+	}
+
+	@include w460 {
+    	background-color: rgba(225,225,225,0.6);
+    	margin-top: 0;
+    	margin-bottom: 510px;
+    	max-width: 100%;
 	}
 }

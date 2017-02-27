@@ -1,20 +1,19 @@
 .footer {
 	width: 100%;
-	height: 185px;
-	margin-top: -185px;
-	color: $white;
+    color: #fff;
 
 	&-block {
-		height: 147px;
-		padding: 20px 0;
-		display: flex;
-		background-color: $blackGreen;
-		opacity: 0.851;
+	    padding: 20px 0;
+	    display: flex;
+	    background-color: #373e42;
+	    opacity: .851;
+	    min-height: 147px;
 
 		&-elem {
 			flex: 1;
 			padding: 0 30px;
 			border-left: 1px solid #757a7d;
+			position: relative;
 
 			&:first-child {
 				opacity: 0.851;
@@ -23,11 +22,20 @@
 
 			&:last-child {
 				opacity: 0.851;
+
+				@include w1000 {
+					flex: 100%;
+					margin-top: 20px;
+				}
 			}
 
 			&__caption {
 				line-height: 1.625;
 				opacity: 0.6;
+
+				@include w768 {
+					opacity: 1 !important;
+				}
 			}
 
 			&__span {
@@ -35,6 +43,54 @@
 				@include Roboto(boldItalic);
 				opacity: 0.7;
 			}
+
+			@include w1000 {
+				border-left: none;
+
+				&:before {
+					content: "";
+					display: block;
+					width: 1px;
+					height: 100%;
+					position: absolute;
+					background-color: #757a7d;
+					left: 0;
+					opacity: 0.6;
+				}
+
+				&:first-child, &:last-child {
+					&:before {
+						display: none;
+					}
+				}
+			}
+
+			@include w680 {
+
+				&:before {
+					display: none !important;
+				}
+
+				max-width: 100% !important;
+				border-bottom: 1px solid #757a7d;
+				padding: 20px 0 !important;
+				text-align: center;
+				margin-top: 0 !important;
+
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+		}
+
+		@include w1000 {
+			flex-wrap: wrap;
+		}
+
+		@include w680 {
+			flex-wrap: no-wrap;
+			flex-direction: column;
+			padding: 0 10px !important;
 		}
 	}
 
@@ -45,7 +101,7 @@
 		&__elem {
 			margin-right: 40px;
 
-			@include w1366 {
+			@include w1440 {
 				margin-right: 0 !important;
 			}
 
@@ -54,8 +110,18 @@
 			}
 		}
 
-		@include w1366 {
+		@include w1440 {
 			justify-content: space-between;
+		}
+
+		@include w680 {
+			max-width: 312px;
+			margin: 0 auto 20px auto;
+		}
+
+		@include w460 {
+		    max-width: 100%;
+    		justify-content: space-around;
 		}
 	}
 

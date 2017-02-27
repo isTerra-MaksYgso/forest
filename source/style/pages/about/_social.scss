@@ -61,11 +61,25 @@
 	&--footer {
 		margin-bottom: 0;
 		float: left;
+
+		@include w768 {
+			max-width: 140px;
+			margin: 0 auto !important;
+			float: none;
+		}
+	}
+
+	@include w460 {
+		top: 15px;
+		left: 10px;
 	}
 }
 
 .social-header--blog {
 	@include w1200 {
 		display: none !important;
+	}
+	@include w768 {
+		display: flex !important;
 	}
 }

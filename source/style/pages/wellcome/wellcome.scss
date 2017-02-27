@@ -20,6 +20,16 @@
 		background-color: $green;
 		border-color: $lightGreen;
 	}
+
+	@include w1200 {
+		top: 20px;
+		right: 20px;
+	}
+
+	@include w720 {
+		right: 50%;
+	    transform: translateX(50%);
+	}
 }
 
 @import '_wellcome-box';

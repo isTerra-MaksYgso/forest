@@ -27,63 +27,70 @@ block content
 			+svgMix("header__menu-icon", 'hamburger')
 
 		div.about-me-block.about-me-block--blog
-			img.about-me-block__photo(src="", alt="my photo")
+			img.about-me-block__photo(src="assets/img/5093.jpg", alt="my photo")
 			h1.page__title-h1 Блог
 			p.about-me-block__caption Статьи которые я написал
-
-	section.my-articles
-
-		+svgMix("my-articles-triangles","bg_blog")
-
-		div.my-articles-name
-			ul.my-articles__list
-				- var articleItems = ["Статья - 1","Статья - 2","Статья - 3","Статья - 4"]
-				each item in articleItems
-					li.my-articles__item= item
-
-		div.my-articles-block
-
-			div.my-articles-itself
-				h2.page__title-h2 Название 1 статьи
-				span.my-articles-itself__data какая-то дата
-				p.my-articles-itself__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				div.my-articles-itself__code какой-то код
-
-			div.my-articles-itself
-				h2.page__title-h2 Название 2 статьи
-				span.my-articles-itself__data какая-то дата
-				p.my-articles-itself__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				div.my-articles-itself__code 
-
-	footer.footer
-		div.footer-block
-			div.footer-block-elem.footer-element--light
-				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-
-			div.footer-block-elem.footer-element--bold
-				ul.footer-menu
-					- var footerMenuItems = ["Мои Работы", "Обо мне","Блог","Авторизация"]
-					each item in footerMenuItems
-						li.footer-menu__elem
-							a.footer-menu__elem-link(href="#")= item
+		div.header__down.header__down--blog
+			+svgMix("header__down-icon","portf_arrow_down")
 
 
-				ul.social.social--footer
-					-
-						var icons = [
-							{title: 'vk', href: '#'},
-							{title: 'github', href: '#'},
-							{title: 'in', href: '#'},
-						]
+	section.my-articles-wrapper
 
-					each icon in icons
-						li.social__item.social__item--footer
-							a.social__link.social__link--footer(href=icon.href)
-								+svgMix("social__icon social__icon--footer", icon.title)
+		div.my-articles
 
-			div.footer-block-elem.footer-element--lightItalic
-				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				span.footer-block-elem__span - Lorem ipsum
+			+svgMix("my-articles-triangles","bg_blog")
 
-		div.footer-signature
-			p.footer-signature__caption © МК | создано с любовью в LoftSchool | 2017
+			div.my-articles-name
+				ul.my-articles__list
+					- var articleItems = ["Статья - 1","Статья - 2","Статья - 3","Статья - 4"]
+					each item in articleItems
+						li.my-articles__item= item
+
+			div.my-articles-block
+
+				div.my-articles-itself
+					h2.page__title-h2 Название 1 статьи
+					span.my-articles-itself__data какая-то дата
+					p.my-articles-itself__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					div.my-articles-itself__code какой-то код
+
+				div.my-articles-itself
+					h2.page__title-h2 Название 2 статьи
+					span.my-articles-itself__data какая-то дата
+					p.my-articles-itself__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					div.my-articles-itself__code
+
+		div.footer
+			div.footer-block
+				div.footer-block-elem.footer-element--light
+					p.footer-block-elem__caption Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+
+				div.footer-block-elem.footer-element--bold
+					ul.footer-menu
+						- var footerMenuItems = ["Мои Работы", "Обо мне","Блог","Авторизация"]
+						each item in footerMenuItems
+							li.footer-menu__elem
+								a.footer-menu__elem-link(href="#")= item
+
+
+					ul.social.social--footer
+						-
+							var icons = [
+								{title: 'vk', href: '#'},
+								{title: 'github', href: '#'},
+								{title: 'in', href: '#'},
+							]
+
+						each icon in icons
+							li.social__item.social__item--footer
+								a.social__link.social__link--footer(href=icon.href)
+									+svgMix("social__icon social__icon--footer", icon.title)
+
+				div.footer-block-elem.footer-element--lightItalic
+					p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					span.footer-block-elem__span - Lorem ipsum
+
+			div.footer-signature
+				span.footer-signature__autor © МК
+				p.footer-signature__caption.
+					создано с любовью в LoftSchool | 2017

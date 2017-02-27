@@ -26,7 +26,7 @@ block content
 			+svgMix("header__menu-icon", 'hamburger')
 
 		div.about-me-block
-			img.about-me-block__photo(src="", alt="my photo")
+			img.about-me-block__photo(src="assets/img/5093.jpg", alt="my photo")
 			h2.about-me-block__title Макс Колендюк
 			p.about-me-block__caption Личный сайт веб разработчика
 
@@ -58,66 +58,71 @@ block content
 					a.my-works-slider__buttons-prev
 						+svgMix("slider__buttons-icon","portf_arrow_up")
 
-	section.my-works-gossip
-		h1.page__title-h1.page__title-h1--black что обо мне говорят
-		+svgMix("my-works-gossip__icon","about_header")
+	section.my-works-gossip-wrapper
 
-		div.my-works-gossip__list
+		div.my-works-gossip
+			h1.page__title-h1.page__title-h1--black что обо мне говорят
+			+svgMix("my-works-gossip__icon","about_header")
 
-			div.my-works-gossip__item
-				img.my-works-gossip__item-img
-				p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				span.my-works-gossip__item-name People Name
-				span.my-works-gossip__item-position - People position
+			div.my-works-gossip__list
 
-			div.my-works-gossip__item
-				img.my-works-gossip__item-img
-				p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				span.my-works-gossip__item-name People Name
-				span.my-works-gossip__item-position - People position
+				div.my-works-gossip__item
+					img.my-works-gossip__item-img
+					p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					span.my-works-gossip__item-name People Name
+					span.my-works-gossip__item-position - People position
 
-		form.contact-me-form(action="")
-			h2.page__title-h2.page__title-h2--black связаться со мной
+				div.my-works-gossip__item
+					img.my-works-gossip__item-img
+					p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					span.my-works-gossip__item-name People Name
+					span.my-works-gossip__item-position - People position
 
-			input.contact-me-form__input(type="text" placeholder="Имя" name="name")
-			input.contact-me-form__input(type="email" placeholder="Email" name="mail")
-			textarea.contact-me-form__textarea(name="human-sms", cols="30", rows="10" placeholder="Ваше сообщение")
-			div.contact-me-form__buttons
-				a(href="#").contact-me-form__link Отправить
-				a(href="#").contact-me-form__link Очистить
+			form.contact-me-form(action="")
+				h2.page__title-h2.page__title-h2--black связаться со мной
 
-		div.go-top
-			+svgMix("go-top__icon","portf_arrow_up")
+				input.contact-me-form__input(type="text" placeholder="Имя" name="name")
+				input.contact-me-form__input(type="email" placeholder="Email" name="mail")
+				textarea.contact-me-form__textarea(name="human-sms", cols="30", rows="10" placeholder="Ваше сообщение")
+				div.contact-me-form__buttons
+					a(href="#").contact-me-form__link Отправить
+					a(href="#").contact-me-form__link Очистить
+
+			div.go-top
+				+svgMix("go-top__icon","portf_arrow_up")
 
 
-	footer.footer
-		div.footer-block
-			div.footer-block-elem
-				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+		div.footer
+			div.footer-block
+				div.footer-block-elem.footer-element--light
+					p.footer-block-elem__caption Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
 
-			div.footer-block-elem
-				ul.footer-menu
-					- var footerMenuItems = ["Мои Работы", "Обо мне","Блог","Авторизация"]
-					each item in footerMenuItems
-						li.footer-menu__elem
-							a.footer-menu__elem-link(href="#")= item
+				div.footer-block-elem.footer-element--bold
+					ul.footer-menu
+						- var footerMenuItems = ["Мои Работы", "Обо мне","Блог","Авторизация"]
+						each item in footerMenuItems
+							li.footer-menu__elem
+								a.footer-menu__elem-link(href="#")= item
 
-				ul.social.social--footer
-					-
-						var icons = [
-							{title: 'vk', href: '#'},
-							{title: 'github', href: '#'},
-							{title: 'in', href: '#'},
-						]
 
-					each icon in icons
-						li.social__item.social__item--footer
-							a.social__link.social__link--footer(href=icon.href)
-								+svgMix("social__icon social__icon--footer", icon.title)
+					ul.social.social--footer
+						-
+							var icons = [
+								{title: 'vk', href: '#'},
+								{title: 'github', href: '#'},
+								{title: 'in', href: '#'},
+							]
 
-			div.footer-block-elem
-				p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				span.footer-block-elem__span - Lorem ipsum
+						each icon in icons
+							li.social__item.social__item--footer
+								a.social__link.social__link--footer(href=icon.href)
+									+svgMix("social__icon social__icon--footer", icon.title)
 
-		div.footer-signature
-			p.footer-signature__caption © МК | создано с любовью в LoftSchool | 2017
+				div.footer-block-elem.footer-element--lightItalic
+					p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					span.footer-block-elem__span - Lorem ipsum
+
+			div.footer-signature
+				span.footer-signature__autor © МК
+				p.footer-signature__caption.
+					создано с любовью в LoftSchool | 2017

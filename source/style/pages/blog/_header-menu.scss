@@ -18,5 +18,18 @@
 		@include w1200 {
 			display: none !important;
 		}
+		@include w768 {
+			display: flex !important;
+		}
+	}
+
+	@include w768 {
+		width: calc(25px/(13/16));
+		height: calc(25px/(13/16));
+	}
+
+	@include w460 {
+		top: 10px;
+		right: 10px;
 	}
 }
