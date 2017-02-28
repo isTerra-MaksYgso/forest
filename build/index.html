@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wellcome</title>
+    <meta content="" name="author">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link rel="stylesheet" href="/assets/css/foundation.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <script src="/assets/js/foundation.js" defer></script>
+    <script src="/assets/js/app.js" defer></script><!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="wellcome-wrapper">
+      <div class="Background">
+        <canvas class="Background-canvas"></canvas>
+      </div><a class="autorizate-button" href="#">Авторизоваться</a>
+      <div class="wellcome-box">
+        <div class="wellcome-box-front">
+          <div class="about-me-block"><img class="about-me-block__photo" src="assets/img/5093.jpg" alt="my photo">
+            <h3 class="about-me-block__title">Макс Колендюк</h3>
+            <p class="about-me-block__caption">Личный сайт веб разработчика</p>
+          </div>
+          <ul class="social">
+            <li class="social__item"><a class="social__link" href="#">
+                <svg class="social__icon">
+                  <use xlink:href="assets/img/sprite.svg#vk"></use>
+                </svg></a></li>
+            <li class="social__item"><a class="social__link" href="#">
+                <svg class="social__icon">
+                  <use xlink:href="assets/img/sprite.svg#github"></use>
+                </svg></a></li>
+            <li class="social__item"><a class="social__link" href="#">
+                <svg class="social__icon">
+                  <use xlink:href="assets/img/sprite.svg#in"></use>
+                </svg></a></li>
+          </ul>
+          <div class="wellcome-buttons"><a class="wellcome-buttons__link" href="works.html">Мои работы</a><a class="wellcome-buttons__link" href="about.html">Обо мне</a><a class="wellcome-buttons__link" href="blog.html">Блог</a></div>
+        </div>
+        <div class="wellcome-box-login">
+          <h2 class="page__title-h2 autorise-title">Авторизуйтесь</h2>
+          <form class="login-form" action="">
+            <label class="login-form__label-box">
+              <div class="login-form__icon">
+                <svg class="login-form__icon-svg">
+                  <use xlink:href="assets/img/sprite.svg#login"></use>
+                </svg>
+              </div>
+              <input class="login-form__input" type="text" placeholder="Логин">
+            </label>
+            <label class="login-form__label-box">
+              <div class="login-form__icon">
+                <svg class="login-form__icon-svg">
+                  <use xlink:href="assets/img/sprite.svg#password"></use>
+                </svg>
+              </div>
+              <input class="login-form__input" type="text" placeholder="Пароль">
+            </label>
+            <div class="inspection-robot">
+              <label class="inspection-robot__people-label" id="people">
+                <input class="inspection-robot__people-input" type="checkbox" name="people">Я человек
+              </label>
+              <p class="inspection-robot__sure-caption">Вы точно не робот?</p>
+              <div class="inspection-robot__sure-labels">
+                <label class="inspection-robot__sure-label">
+                  <input class="inspection-robot__sure-input" type="radio" name="yes">Да
+                </label>
+                <label class="inspection-robot__sure-label">
+                  <input class="inspection-robot__sure-input" type="radio" name="maybe">Не уверен
+                </label>
+              </div>
+            </div>
+          </form>
+          <div class="wellcome-buttons"><a class="wellcome-buttons__link" id="toMain" href="#">На главную</a><a class="wellcome-buttons__link" href="#">Войти</a></div>
+        </div>
+      </div>
+      <div class="signature"><span class="signature__autor">© МК</span>
+        <p class="signature__caption">создано с любовью в LoftSchool | 2017</p>
+      </div>
+    </div>
+    <script src="/assets/js/water.js"></script>
+  </body>
+</html>
