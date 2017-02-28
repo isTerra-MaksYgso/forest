@@ -5,32 +5,72 @@ block variables
 
 block content
 	div.wellcome-wrapper
-		a.autorizate-button(href="login.html") Авторизоваться
+
+		div.Background
+			canvas.Background-canvas
+
+		a.autorizate-button(href="#") Авторизоваться
 
 		div.wellcome-box
 
-			div.about-me-block
-				img.about-me-block__photo(src="assets/img/5093.jpg", alt="my photo")
-				h3.about-me-block__title Макс Колендюк
-				p.about-me-block__caption Личный сайт веб разработчика
-			
-			ul.social
-				-
-					var icons = [
-						{title: 'vk', href: '#'},
-						{title: 'github', href: '#'},
-						{title: 'in', href: '#'},
-					]
+			div.wellcome-box-front
+				div.about-me-block
+					img.about-me-block__photo(src="assets/img/5093.jpg", alt="my photo")
+					h3.about-me-block__title Макс Колендюк
+					p.about-me-block__caption Личный сайт веб разработчика
+				
+				ul.social
+					-
+						var icons = [
+							{title: 'vk', href: '#'},
+							{title: 'github', href: '#'},
+							{title: 'in', href: '#'},
+						]
 
-				each icon in icons
-					li.social__item
-						a.social__link(href=icon.href)
-							+svgMix("social__icon", icon.title)
+					each icon in icons
+						li.social__item
+							a.social__link(href=icon.href)
+								+svgMix("social__icon", icon.title)
 
-			div.wellcome-buttons
-				a.wellcome-buttons__link(href="works.html") Мои работы
-				a.wellcome-buttons__link(href="about.html") Обо мне
-				a.wellcome-buttons__link(href="blog.html") Блог
+				div.wellcome-buttons
+					a.wellcome-buttons__link(href="works.html") Мои работы
+					a.wellcome-buttons__link(href="about.html") Обо мне
+					a.wellcome-buttons__link(href="blog.html") Блог
+
+			div.wellcome-box-login
+				h2.page__title-h2.autorise-title Авторизуйтесь
+				form.login-form(action="")
+					label.login-form__label-box
+						div.login-form__icon
+							svg.login-form__icon-svg
+								use(xlink:href='assets/img/sprite.svg#login')
+						input.login-form__input(type="text" placeholder="Логин")
+
+					label.login-form__label-box
+						div.login-form__icon
+							svg.login-form__icon-svg
+								use(xlink:href='assets/img/sprite.svg#password')
+						input.login-form__input(type="text" placeholder="Пароль")
+
+					div.inspection-robot
+						label(id="people").inspection-robot__people-label
+							input.inspection-robot__people-input(type="checkbox" name="people")
+							| Я человек
+
+						p.inspection-robot__sure-caption Вы точно не робот?
+
+						div.inspection-robot__sure-labels
+							label.inspection-robot__sure-label()
+								input.inspection-robot__sure-input(type="radio" name="yes")
+								| Да
+
+							label.inspection-robot__sure-label()
+								input.inspection-robot__sure-input(type="radio" name="maybe")
+								| Не уверен
+
+				div.wellcome-buttons
+					a.wellcome-buttons__link(href="#") На главную
+					a.wellcome-buttons__link(href="#") Войти
 
 		div.signature
 			span.signature__autor © МК

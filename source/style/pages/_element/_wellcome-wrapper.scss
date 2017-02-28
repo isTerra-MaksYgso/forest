@@ -1,0 +1,9 @@
+.wellcome-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%; color: $white;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	min-height: 500px;
+}

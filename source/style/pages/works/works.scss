@@ -1,11 +1,11 @@
 @import '../../common/_const';
 
-@import '_header';
-@import '_social';
-@import '_header-menu';
-@import '_about-me-block';
-@import '_footer';
-@import '_signature';
+@import '../_element/_header';
+@import '../_element/_social';
+@import '../_element/_header-menu';
+@import '../_element/_about-me-block';
+@import '../_element/_footer';
+@import '../_element/_signature';
 
 .my-works {
 	position: relative;

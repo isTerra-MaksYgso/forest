@@ -3,6 +3,7 @@
 	margin-bottom: 40px;
 	display: flex;
 	justify-content: center;
+	margin-top: 20px;
 
 	&__caption {
 		margin-left: 10px;
@@ -42,7 +43,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 0;
+	margin: 0 auto;
 	height: 38px;
 	background-color: $green;
 	opacity: 0.851;

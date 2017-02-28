@@ -1,6 +1,11 @@
 @import '../../common/_const';
 
-@import '_wellcome-wrapper';
+@import '../_element/_wellcome-wrapper';
+@import '../_element/_wellcome-box';
+@import '../_element/_about-me-block';
+@import '../_element/_social';
+@import '../_element/_wellcome-buttons';
+@import '../_element/_signature';
 
 .autorizate-button {
 	display: flex;
@@ -32,8 +37,83 @@
 	}
 }
 
-@import '_wellcome-box';
-@import '_about-me-block';
-@import '_social';
-@import '_wellcome-buttons';
-@import '_signature';
+.autorise-title {
+	margin-top: -20px !important;
+	@include Roboto(sansus);
+	text-transform: uppercase;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+
+	&__label-box {
+		position: relative;
+	}
+
+	&__input {
+		width: 100%;
+		padding-left: 60px;
+		height: 45px;
+		border-radius: 22.5px;
+		@include Roboto(regular);
+		margin-bottom: 20px;
+	}
+
+	&__icon {
+		top: 1px;
+		border-bottom-left-radius: 22.5px;
+		border-top-left-radius: 22.5px;
+		background-color: $loginFormInput;
+		height: 44px;
+		width: 45px;
+		position: absolute;
+
+		&-svg {
+			position: absolute;
+		    left: 55%;
+		    top: 50%;
+		    transform: translate(-50%, -50%);
+			width: 20px;
+			height: 20px;
+			fill: $grey;
+		}
+	}
+}
+.inspection-robot {
+	color: $greyWhite;
+
+	&__people-label {
+		display: block;
+		margin-bottom: 20px;
+	}
+
+	&__people-input {
+		width: 18px;
+	    height: 18px;
+	    margin-right: 10px;
+	    cursor: pointer;
+	    vertical-align: middle;
+	}
+
+	&__sure-caption {
+		margin-bottom: 10px;
+		@include Roboto(bold);
+	}
+
+	&__sure-labels {
+		display: flex;
+		justify-content: space-between;
+		width: 200px;
+		margin: 0 auto 40px auto;
+	}
+
+	&__sure-input {
+		width: 20px;
+		height: 20px;
+		margin-right: 10px;
+		vertical-align: middle;
+		cursor: pointer;
+	}
+}

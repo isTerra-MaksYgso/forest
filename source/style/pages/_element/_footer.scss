@@ -102,6 +102,14 @@
 			margin-right: 40px;
 
 			@include w1440 {
+				margin-right: 25px;
+			}
+
+			@include w1440 {
+				margin-right: 15px;
+			}
+
+			@include w768 {
 				margin-right: 0 !important;
 			}
 
@@ -109,8 +117,7 @@
 				margin-right: 0;
 			}
 		}
-
-		@include w1440 {
+		@include w768 {
 			justify-content: space-between;
 		}
 
