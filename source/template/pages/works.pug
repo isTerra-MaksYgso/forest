@@ -22,7 +22,7 @@ block content
 					a.social__link.social__link--header(href=icon.href)
 						+svgMix("social__icon social__icon--header", icon.title)
 
-		div.header__menu
+		div.header__menu#main-menu
 			+svgMix("header__menu-icon", 'hamburger')
 
 		div.about-me-block
@@ -51,12 +51,31 @@ block content
 
 			div.my-works-slider
 				div.my-works__title-slide
+					span.slider-counter.slider-counter--main
 					img(src="assets/img/forest_works.png", alt="work photo").my-works-slider__img
 				div.my-works-slider__buttons
-					a.my-works-slider__buttons-next
-						+svgMix("slider__buttons-icon","portf_arrow_down")
-					a.my-works-slider__buttons-prev
-						+svgMix("slider__buttons-icon","portf_arrow_up")
+					div.my-works-slider__buttons-next
+						a.my-works-slider__element-link
+							span.slider-counter.slider-counter--first
+							+svgMix("slider__buttons-icon slider-next","portf_arrow_down")
+						ul.my-works-slider__elements
+							li.my-works-slider__element
+								img(src="assets/img/slider/1366x768.jpg", alt="slider").my-works-slider__element-img
+							li.my-works-slider__element
+								img(src="assets/img/slider/mBUP4IsY7oU.jpg", alt="slider").my-works-slider__element-img
+							li.my-works-slider__element
+								img(src="assets/img/slider/osen_risunok_progulka_82963_1366x768.jpg", alt="slider").my-works-slider__element-img
+					div.my-works-slider__buttons-prev
+						a.my-works-slider__element-link
+							span.slider-counter.slider-counter--last
+							+svgMix("slider__buttons-icon slider-prev","portf_arrow_up")
+						ul.my-works-slider__elements
+							li.my-works-slider__element
+								img(src="assets/img/slider/1366x768.jpg", alt="slider").my-works-slider__element-img
+							li.my-works-slider__element
+								img(src="assets/img/slider/mBUP4IsY7oU.jpg", alt="slider").my-works-slider__element-img
+							li.my-works-slider__element
+								img(src="assets/img/slider/osen_risunok_progulka_82963_1366x768.jpg", alt="slider").my-works-slider__element-img
 
 	section.my-works-gossip-wrapper
 
@@ -81,12 +100,15 @@ block content
 			form.contact-me-form(action="")
 				h2.page__title-h2.page__title-h2--black связаться со мной
 
-				input.contact-me-form__input(type="text" placeholder="Имя" name="name")
-				input.contact-me-form__input(type="email" placeholder="Email" name="mail")
-				textarea.contact-me-form__textarea(name="human-sms", cols="30", rows="10" placeholder="Ваше сообщение")
+				input.contact-me-form__input(type="text" placeholder="Имя" name="name" data-login-content="Введите ваше имя")
+				div.login-error-box.login-error-box--works
+				input.contact-me-form__input(type="email" placeholder="Email" name="mail" data-login-content="Введите ваш еМаил")
+				div.login-error-box.login-error-box--works
+				textarea.contact-me-form__textarea(name="human-sms", cols="30", rows="10" placeholder="Ваше сообщение" data-login-content="Введите ваше сообщение")
+				div.login-error-box.login-error-box--works
 				div.contact-me-form__buttons
-					a(href="#").contact-me-form__link Отправить
-					a(href="#").contact-me-form__link Очистить
+					a(href="#").contact-me-form__link#submitMeForm Отправить
+					a(href="#").contact-me-form__link#resetForm Очистить
 
 			div.go-top
 				+svgMix("go-top__icon","portf_arrow_up")
@@ -126,3 +148,27 @@ block content
 				span.footer-signature__autor © МК
 				p.footer-signature__caption.
 					создано с любовью в LoftSchool | 2017
+
+	div.main-menu
+		div.main-menu__section
+		- var menuItems = ["Главная", "Обо мне", "Блог", "Мои работы"]
+		div.main-menu__list
+			each item in menuItems
+				a(href="#").main-menu__link
+					h1.main-menu__link-title= item
+		div.main-menu__section
+
+	div.preloader
+		div.preloader__percents
+		div.preloader__animation
+			<svg id="prel" viewBox="0 0 80 95.113">
+				<g class="wave-1">
+					<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005"/>
+				</g>
+				<g class="wave-2">
+					<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684"/>
+				</g>
+				<g class="wave-3">
+					<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362"/>
+				</g>
+			</svg>

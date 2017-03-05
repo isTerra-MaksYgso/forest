@@ -10,8 +10,6 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="stylesheet" href="/assets/css/foundation.css">
     <link rel="stylesheet" href="/assets/css/app.css">
-    <script src="/assets/js/foundation.js" defer></script>
-    <script src="/assets/js/app.js" defer></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script><!--[if lt IE 9]>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
   </head>
@@ -37,7 +35,7 @@
               <use xlink:href="assets/img/sprite.svg#in"></use>
             </svg></a></li>
       </ul>
-      <div class="header__menu">
+      <div class="header__menu" id="main-menu">
         <svg class="header__menu-icon">
           <use xlink:href="assets/img/sprite.svg#hamburger"></use>
         </svg>
@@ -93,19 +91,19 @@
             <p class="my-skills__title">Frontend</p>
             <ul class="my-skills__list">
               <li class="my-skills__circle">
-                <svg class="my-skills__circle-svg">
+                <svg class="my-skills__circle-svg" viewBox="0 0 120 120">
                   <circle class="my-skills__circle-svg-under" cx="60" cy="60" r="50"></circle>
                   <circle class="my-skills__circle-svg-above" cx="60" cy="60" r="50"></circle>
                 </svg><span class="my-skills__circle-span">HTML5</span>
               </li>
               <li class="my-skills__circle">
-                <svg class="my-skills__circle-svg">
+                <svg class="my-skills__circle-svg" viewBox="0 0 120 120">
                   <circle class="my-skills__circle-svg-under" cx="60" cy="60" r="50"></circle>
                   <circle class="my-skills__circle-svg-above" cx="60" cy="60" r="50"></circle>
                 </svg><span class="my-skills__circle-span">CSS3</span>
               </li>
               <li class="my-skills__circle">
-                <svg class="my-skills__circle-svg">
+                <svg class="my-skills__circle-svg" viewBox="0 0 120 120">
                   <circle class="my-skills__circle-svg-under" cx="60" cy="60" r="50"></circle>
                   <circle class="my-skills__circle-svg-above" cx="60" cy="60" r="50"></circle>
                 </svg><span class="my-skills__circle-span">JavaScript &amp; jQuery</span>
@@ -116,25 +114,25 @@
             <p class="my-skills__title">Backend</p>
             <ul class="my-skills__list">
               <li class="my-skills__circle">
-                <svg class="my-skills__circle-svg">
+                <svg class="my-skills__circle-svg" viewBox="0 0 120 120">
                   <circle class="my-skills__circle-svg-under" cx="60" cy="60" r="50"></circle>
                   <circle class="my-skills__circle-svg-above" cx="60" cy="60" r="50"></circle>
                 </svg><span class="my-skills__circle-span">PHP</span>
               </li>
               <li class="my-skills__circle">
-                <svg class="my-skills__circle-svg">
+                <svg class="my-skills__circle-svg" viewBox="0 0 120 120">
                   <circle class="my-skills__circle-svg-under" cx="60" cy="60" r="50"></circle>
                   <circle class="my-skills__circle-svg-above" cx="60" cy="60" r="50"></circle>
                 </svg><span class="my-skills__circle-span">mySQL</span>
               </li>
               <li class="my-skills__circle">
-                <svg class="my-skills__circle-svg">
+                <svg class="my-skills__circle-svg" viewBox="0 0 120 120">
                   <circle class="my-skills__circle-svg-under" cx="60" cy="60" r="50"></circle>
                   <circle class="my-skills__circle-svg-above" cx="60" cy="60" r="50"></circle>
                 </svg><span class="my-skills__circle-span">Node.js &amp; npm</span>
               </li>
               <li class="my-skills__circle">
-                <svg class="my-skills__circle-svg">
+                <svg class="my-skills__circle-svg" viewBox="0 0 120 120">
                   <circle class="my-skills__circle-svg-under" cx="60" cy="60" r="50"></circle>
                   <circle class="my-skills__circle-svg-above" cx="60" cy="60" r="50"></circle>
                 </svg><span class="my-skills__circle-span">Mongo.db</span>
@@ -145,19 +143,19 @@
             <p class="my-skills__title">WorkFlow</p>
             <ul class="my-skills__list">
               <li class="my-skills__circle">
-                <svg class="my-skills__circle-svg">
+                <svg class="my-skills__circle-svg" viewBox="0 0 120 120">
                   <circle class="my-skills__circle-svg-under" cx="60" cy="60" r="50"></circle>
                   <circle class="my-skills__circle-svg-above" cx="60" cy="60" r="50"></circle>
                 </svg><span class="my-skills__circle-span">Git</span>
               </li>
               <li class="my-skills__circle">
-                <svg class="my-skills__circle-svg">
+                <svg class="my-skills__circle-svg" viewBox="0 0 120 120">
                   <circle class="my-skills__circle-svg-under" cx="60" cy="60" r="50"></circle>
                   <circle class="my-skills__circle-svg-above" cx="60" cy="60" r="50"></circle>
                 </svg><span class="my-skills__circle-span">Gulp</span>
               </li>
               <li class="my-skills__circle">
-                <svg class="my-skills__circle-svg">
+                <svg class="my-skills__circle-svg" viewBox="0 0 120 120">
                   <circle class="my-skills__circle-svg-under" cx="60" cy="60" r="50"></circle>
                   <circle class="my-skills__circle-svg-above" cx="60" cy="60" r="50"></circle>
                 </svg><span class="my-skills__circle-span">Bower</span>
@@ -252,6 +250,32 @@
         </div>
       </div>
     </section>
-    <script src="/assets/js/water.js"></script>
+    <div class="main-menu">
+      <div class="main-menu__section"></div>
+      <div class="main-menu__list"><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Главная</h1></a><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Обо мне</h1></a><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Блог</h1></a><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Мои работы</h1></a>
+      </div>
+      <div class="main-menu__section"></div>
+    </div>
+    <div class="preloader">
+      <div class="preloader__percents"></div>
+      <div class="preloader__animation"><svg id="prel" viewBox="0 0 80 95.113">
+<g class="wave-1">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005"/>
+</g>
+<g class="wave-2">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684"/>
+</g>
+<g class="wave-3">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362"/>
+</g>
+</svg>
+      </div>
+    </div>
+    <script src="/assets/js/foundation.js" defer></script>
+    <script src="/assets/js/app.js" defer></script>
   </body>
 </html>

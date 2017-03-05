@@ -9,9 +9,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="stylesheet" href="/assets/css/foundation.css">
-    <link rel="stylesheet" href="/assets/css/app.css">
-    <script src="/assets/js/foundation.js" defer></script>
-    <script src="/assets/js/app.js" defer></script><!--[if lt IE 9]>
+    <link rel="stylesheet" href="/assets/css/app.css"><!--[if lt IE 9]>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
   </head>
   <body>
@@ -36,7 +34,7 @@
               <use xlink:href="assets/img/sprite.svg#in"></use>
             </svg></a></li>
       </ul>
-      <div class="header__menu">
+      <div class="header__menu" id="main-menu">
         <svg class="header__menu-icon">
           <use xlink:href="assets/img/sprite.svg#hamburger"></use>
         </svg>
@@ -70,14 +68,29 @@
             </svg></a>
         </div>
         <div class="my-works-slider">
-          <div class="my-works__title-slide"><img class="my-works-slider__img" src="assets/img/forest_works.png" alt="work photo"></div>
-          <div class="my-works-slider__buttons"><a class="my-works-slider__buttons-next">
-              <svg class="slider__buttons-icon">
-                <use xlink:href="assets/img/sprite.svg#portf_arrow_down"></use>
-              </svg></a><a class="my-works-slider__buttons-prev">
-              <svg class="slider__buttons-icon">
-                <use xlink:href="assets/img/sprite.svg#portf_arrow_up"></use>
-              </svg></a></div>
+          <div class="my-works__title-slide"><span class="slider-counter slider-counter--main"></span><img class="my-works-slider__img" src="assets/img/forest_works.png" alt="work photo"></div>
+          <div class="my-works-slider__buttons">
+            <div class="my-works-slider__buttons-next"><a class="my-works-slider__element-link"><span class="slider-counter slider-counter--first"></span>
+                <svg class="slider__buttons-icon slider-next">
+                  <use xlink:href="assets/img/sprite.svg#portf_arrow_down"></use>
+                </svg></a>
+              <ul class="my-works-slider__elements">
+                <li class="my-works-slider__element"><img class="my-works-slider__element-img" src="assets/img/slider/1366x768.jpg" alt="slider"></li>
+                <li class="my-works-slider__element"><img class="my-works-slider__element-img" src="assets/img/slider/mBUP4IsY7oU.jpg" alt="slider"></li>
+                <li class="my-works-slider__element"><img class="my-works-slider__element-img" src="assets/img/slider/osen_risunok_progulka_82963_1366x768.jpg" alt="slider"></li>
+              </ul>
+            </div>
+            <div class="my-works-slider__buttons-prev"><a class="my-works-slider__element-link"><span class="slider-counter slider-counter--last"></span>
+                <svg class="slider__buttons-icon slider-prev">
+                  <use xlink:href="assets/img/sprite.svg#portf_arrow_up"></use>
+                </svg></a>
+              <ul class="my-works-slider__elements">
+                <li class="my-works-slider__element"><img class="my-works-slider__element-img" src="assets/img/slider/1366x768.jpg" alt="slider"></li>
+                <li class="my-works-slider__element"><img class="my-works-slider__element-img" src="assets/img/slider/mBUP4IsY7oU.jpg" alt="slider"></li>
+                <li class="my-works-slider__element"><img class="my-works-slider__element-img" src="assets/img/slider/osen_risunok_progulka_82963_1366x768.jpg" alt="slider"></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -97,10 +110,13 @@
         </div>
         <form class="contact-me-form" action="">
           <h2 class="page__title-h2 page__title-h2--black">связаться со мной</h2>
-          <input class="contact-me-form__input" type="text" placeholder="Имя" name="name">
-          <input class="contact-me-form__input" type="email" placeholder="Email" name="mail">
-          <textarea class="contact-me-form__textarea" name="human-sms" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>
-          <div class="contact-me-form__buttons"><a class="contact-me-form__link" href="#">Отправить</a><a class="contact-me-form__link" href="#">Очистить</a></div>
+          <input class="contact-me-form__input" type="text" placeholder="Имя" name="name" data-login-content="Введите ваше имя">
+          <div class="login-error-box login-error-box--works"></div>
+          <input class="contact-me-form__input" type="email" placeholder="Email" name="mail" data-login-content="Введите ваш еМаил">
+          <div class="login-error-box login-error-box--works"></div>
+          <textarea class="contact-me-form__textarea" name="human-sms" cols="30" rows="10" placeholder="Ваше сообщение" data-login-content="Введите ваше сообщение"></textarea>
+          <div class="login-error-box login-error-box--works"></div>
+          <div class="contact-me-form__buttons"><a class="contact-me-form__link" href="#" id="submitMeForm">Отправить</a><a class="contact-me-form__link" href="#" id="resetForm">Очистить</a></div>
         </form>
         <div class="go-top">
           <svg class="go-top__icon">
@@ -140,10 +156,39 @@
           </div>
         </div>
         <div class="footer-signature"><span class="footer-signature__autor">© МК</span>
-          <p class="footer-signature__caption">создано с любовью в LoftSchool | 2017</p>
+          <p class="footer-signature__caption">
+            создано с любовью в LoftSchool | 2017
+            
+          </p>
         </div>
       </div>
     </section>
-    <script src="/assets/js/water.js"></script>
+    <div class="main-menu">
+      <div class="main-menu__section"></div>
+      <div class="main-menu__list"><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Главная</h1></a><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Обо мне</h1></a><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Блог</h1></a><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Мои работы</h1></a>
+      </div>
+      <div class="main-menu__section"></div>
+    </div>
+    <div class="preloader">
+      <div class="preloader__percents"></div>
+      <div class="preloader__animation"><svg id="prel" viewBox="0 0 80 95.113">
+<g class="wave-1">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005"/>
+</g>
+<g class="wave-2">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684"/>
+</g>
+<g class="wave-3">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362"/>
+</g>
+</svg>
+      </div>
+    </div>
+    <script src="/assets/js/foundation.js" defer></script>
+    <script src="/assets/js/app.js" defer></script>
   </body>
 </html>

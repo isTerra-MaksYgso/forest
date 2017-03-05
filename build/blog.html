@@ -9,9 +9,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="stylesheet" href="/assets/css/foundation.css">
-    <link rel="stylesheet" href="/assets/css/app.css">
-    <script src="/assets/js/foundation.js" defer></script>
-    <script src="/assets/js/app.js" defer></script><!--[if lt IE 9]>
+    <link rel="stylesheet" href="/assets/css/app.css"><!--[if lt IE 9]>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
   </head>
   <body>
@@ -36,7 +34,7 @@
               <use xlink:href="assets/img/sprite.svg#in"></use>
             </svg></a></li>
       </ul>
-      <div class="header__menu header__menu--blog">
+      <div class="header__menu header__menu--blog" id="main-menu">
         <svg class="header__menu-icon">
           <use xlink:href="assets/img/sprite.svg#hamburger"></use>
         </svg>
@@ -58,21 +56,33 @@
         </svg>
         <div class="my-articles-name">
           <ul class="my-articles__list">
-            <li class="my-articles__item">Статья - 1</li>
-            <li class="my-articles__item">Статья - 2</li>
-            <li class="my-articles__item">Статья - 3</li>
-            <li class="my-articles__item">Статья - 4</li>
+            <li class="my-articles__item"><a class="my-articles__link" href="#article1">Название 1 статьи</a></li>
+            <li class="my-articles__item"><a class="my-articles__link" href="#article2">Название 2 статьи</a></li>
+            <li class="my-articles__item"><a class="my-articles__link" href="#article3">Название 3 статьи</a></li>
+            <li class="my-articles__item"><a class="my-articles__link" href="#article4">Название 4 статьи</a></li>
           </ul>
         </div>
         <div class="my-articles-block">
-          <div class="my-articles-itself">
+          <div class="my-articles-itself" data-section="article1">
             <h2 class="page__title-h2">Название 1 статьи</h2><span class="my-articles-itself__data">какая-то дата</span>
             <p class="my-articles-itself__caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <div class="my-articles-itself__code">какой-то код</div>
           </div>
-          <div class="my-articles-itself">
+          <div class="my-articles-itself" data-section="article2">
             <h2 class="page__title-h2">Название 2 статьи</h2><span class="my-articles-itself__data">какая-то дата</span>
             <p class="my-articles-itself__caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="my-articles-itself__code"></div>
+          </div>
+          <div class="my-articles-itself" data-section="article3">
+            <h2 class="page__title-h2">Название 3 статьи</h2><span class="my-articles-itself__data">какая-то дата</span>
+            <p class="my-articles-itself__caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="my-articles-itself__code"></div>
+          </div>
+          <div class="my-articles-itself" data-section="article4">
+            <h2 class="page__title-h2">Название 4 статьи</h2><span class="my-articles-itself__data">какая-то дата</span>
+            <p class="my-articles-itself__caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="my-articles-itself__caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p class="my-articles-itself__caption">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
             <div class="my-articles-itself__code"></div>
           </div>
         </div>
@@ -109,10 +119,39 @@
           </div>
         </div>
         <div class="footer-signature"><span class="footer-signature__autor">© МК</span>
-          <p class="footer-signature__caption">создано с любовью в LoftSchool | 2017</p>
+          <p class="footer-signature__caption">
+            создано с любовью в LoftSchool | 2017
+            
+          </p>
         </div>
       </div>
     </section>
-    <script src="/assets/js/water.js"></script>
+    <div class="main-menu">
+      <div class="main-menu__section"></div>
+      <div class="main-menu__list"><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Главная</h1></a><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Обо мне</h1></a><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Блог</h1></a><a class="main-menu__link" href="#">
+          <h1 class="main-menu__link-title">Мои работы</h1></a>
+      </div>
+      <div class="main-menu__section"></div>
+    </div>
+    <div class="preloader">
+      <div class="preloader__percents"></div>
+      <div class="preloader__animation"><svg id="prel" viewBox="0 0 80 95.113">
+<g class="wave-1">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005"/>
+</g>
+<g class="wave-2">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684"/>
+</g>
+<g class="wave-3">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362"/>
+</g>
+</svg>
+      </div>
+    </div>
+    <script src="/assets/js/foundation.js" defer></script>
+    <script src="/assets/js/app.js" defer></script>
   </body>
 </html>

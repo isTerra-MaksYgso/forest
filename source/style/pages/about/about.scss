@@ -7,6 +7,8 @@
 @import '../_element/_footer';
 @import '../_element/_signature';
 @import '../_element/_map-script';
+@import '../_element/_fullscreen-menu';
+@import '../_element/_preloader';
 
 .header-text-bg {
 	height: auto;
@@ -208,6 +210,11 @@
 		display: flex;
 		margin-bottom: 40px;
 
+		@include w1199 {
+		    justify-content: flex-start;
+    		flex-wrap: wrap;
+		}
+
 		@include w1000 {
 		    display: flex;
     		justify-content: center;
@@ -247,6 +254,14 @@
 		    transform: translate(-50%, -50%);
 		    color: $green;
 		    text-align: center;
+		}
+
+		@include w1199 {
+		    margin-right: 20px;
+		}
+
+		@include w680 {
+		    margin: 0 10px 0 10px !important;
 		}
 	}
 }

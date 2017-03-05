@@ -16,8 +16,6 @@ html
 
     link(rel='stylesheet' href='/assets/css/foundation.css')
     link(rel='stylesheet' href='/assets/css/app.css')
-    script(src='/assets/js/foundation.js' defer)
-    script(src='/assets/js/app.js' defer)
     if title == 'About me'
         script(src='https://maps.googleapis.com/maps/api/js')
 
@@ -28,4 +26,7 @@ html
   body
     block content
 
-    script(src='/assets/js/water.js')
+    if title == 'Wellcome'
+        script(src='/assets/js/water.js')
+    script(src='/assets/js/foundation.js' defer)
+    script(src='/assets/js/app.js' defer)

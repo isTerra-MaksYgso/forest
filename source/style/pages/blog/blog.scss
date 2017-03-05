@@ -6,6 +6,8 @@
 @import '../_element/_about-me-block';
 @import '../_element/_footer';
 @import '../_element/_signature';
+@import '../_element/_fullscreen-menu';
+@import '../_element/_preloader';
 
 
 .my-articles {
@@ -44,12 +46,15 @@
 	&__item {
 		padding: 13px 18px 13px 0;
 		position: relative;
-		line-height: 1.625;
 		margin-bottom: 10px;
 		cursor: pointer;
+	}
 
-		// -active -> true.
-		&:active {
+	&__link {
+		line-height: 1.625;
+		color: $blackGreen;
+
+		&-active {
 			@include Roboto(bold);
 			color: $green;
 

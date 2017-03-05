@@ -6,6 +6,8 @@
 @import '../_element/_about-me-block';
 @import '../_element/_footer';
 @import '../_element/_signature';
+@import '../_element/_fullscreen-menu';
+@import '../_element/_preloader';
 
 .my-works {
 	position: relative;
@@ -160,6 +162,13 @@
 				display: flex;
 			}
 
+			&-icon {
+				margin: auto;
+				opacity: 1;
+				cursor: pointer;
+				z-index: 3;
+			}
+
 			@include w1000 {
 				position: absolute;
 			    top: 100%;
@@ -173,6 +182,33 @@
 			}
 		}
 
+		&__elements {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			position: relative;
+		}
+
+		&__element {
+		    position: absolute;
+		    width: 100%;
+		    height: 100%;
+
+		    &-img {
+		    	width: 100%;
+		    	height: 100%;
+		    }
+
+			&-link {
+				position: absolute;
+			    width: 100%;
+				height: 100%;
+				display: flex;
+				background-color: rgba(164,168,160, 0.6);
+				z-index: 1;
+			}
+		}
+
 		@include w1000 {
 			width: 100%;
 		}
@@ -182,6 +218,7 @@
 		width: 100%;
 		height: 525px;
 		display: flex;
+		position: relative;
 
 		@include w1200 {
 		    
@@ -312,6 +349,7 @@
 	fill: $white;
 	cursor: pointer;
 	margin: auto;
+	z-index: 3;
 }
 
 .my-works-triangles {
@@ -408,6 +446,21 @@
 	}
 
 	@include w460 {
-		height: calc(94px/(13/16))
+		height: calc(94px/(13/16));
 	}
+}
+
+
+.slider-counter {
+    position: absolute;
+    font-size: 150px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: rebeccapurple;
+
+    &--main {
+    	font-size: 210px !important;
+    }
 }

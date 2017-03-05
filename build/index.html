@@ -9,9 +9,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="stylesheet" href="/assets/css/foundation.css">
-    <link rel="stylesheet" href="/assets/css/app.css">
-    <script src="/assets/js/foundation.js" defer></script>
-    <script src="/assets/js/app.js" defer></script><!--[if lt IE 9]>
+    <link rel="stylesheet" href="/assets/css/app.css"><!--[if lt IE 9]>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
   </head>
   <body>
@@ -50,7 +48,8 @@
                   <use xlink:href="assets/img/sprite.svg#login"></use>
                 </svg>
               </div>
-              <input class="login-form__input" type="text" placeholder="Логин">
+              <input class="login-form__input" type="text" name="login" placeholder="Логин" data-login-content="Введите логин">
+              <div class="login-error-box"></div>
             </label>
             <label class="login-form__label-box">
               <div class="login-form__icon">
@@ -58,30 +57,49 @@
                   <use xlink:href="assets/img/sprite.svg#password"></use>
                 </svg>
               </div>
-              <input class="login-form__input" type="text" placeholder="Пароль">
+              <input class="login-form__input" type="text" name="password" placeholder="Пароль" data-login-content="Введите пароль">
+              <div class="login-error-box"></div>
             </label>
             <div class="inspection-robot">
-              <label class="inspection-robot__people-label" id="people">
-                <input class="inspection-robot__people-input" type="checkbox" name="people">Я человек
-              </label>
+              <input class="inspection-robot__people-input" type="checkbox" id="people" name="people">
+              <label class="inspection-robot__people-label" for="people">Я человек</label>
               <p class="inspection-robot__sure-caption">Вы точно не робот?</p>
               <div class="inspection-robot__sure-labels">
-                <label class="inspection-robot__sure-label">
-                  <input class="inspection-robot__sure-input" type="radio" name="yes">Да
-                </label>
-                <label class="inspection-robot__sure-label">
-                  <input class="inspection-robot__sure-input" type="radio" name="maybe">Не уверен
-                </label>
+                <input class="inspection-robot__sure-input" type="checkbox" id="robotYes" name="yes">
+                <label class="inspection-robot__sure-label" for="robotYes">Да</label>
+                <input class="inspection-robot__sure-input" type="checkbox" id="robotMaybe" name="maybe">
+                <label class="inspection-robot__sure-label" for="robotMaybe">Не уверен</label>
               </div>
             </div>
+            <div class="error-mes"></div>
           </form>
-          <div class="wellcome-buttons"><a class="wellcome-buttons__link" id="toMain" href="#">На главную</a><a class="wellcome-buttons__link" href="#">Войти</a></div>
+          <div class="wellcome-buttons"><a class="wellcome-buttons__link" id="toMain" href="#">На главную</a><a class="wellcome-buttons__link" id="enter" href="#">Войти</a></div>
         </div>
       </div>
       <div class="signature"><span class="signature__autor">© МК</span>
-        <p class="signature__caption">создано с любовью в LoftSchool | 2017</p>
+        <p class="signature__caption">
+          создано с любовью в LoftSchool | 2017
+          
+        </p>
+      </div>
+    </div>
+    <div class="preloader">
+      <div class="preloader__percents"></div>
+      <div class="preloader__animation"><svg id="prel" viewBox="0 0 80 95.113">
+<g class="wave-1">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005"/>
+</g>
+<g class="wave-2">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684"/>
+</g>
+<g class="wave-3">
+<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362"/>
+</g>
+</svg>
       </div>
     </div>
     <script src="/assets/js/water.js"></script>
+    <script src="/assets/js/foundation.js" defer></script>
+    <script src="/assets/js/app.js" defer></script>
   </body>
 </html>

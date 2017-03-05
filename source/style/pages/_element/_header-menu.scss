@@ -1,12 +1,14 @@
 @import '../../common/_const';
 
 .header__menu{
+	display: block !important;
 	position: absolute;
 	top: 28px;
 	right: 30px;
 	width: 40px;
 	height: 40px;
 	cursor: pointer;
+	z-index: 4;
 
 	&-icon {
 	    width: 100%;

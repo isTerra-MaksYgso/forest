@@ -44,35 +44,49 @@ block content
 						div.login-form__icon
 							svg.login-form__icon-svg
 								use(xlink:href='assets/img/sprite.svg#login')
-						input.login-form__input(type="text" placeholder="Логин")
+						input.login-form__input(type="text" name="login" placeholder="Логин" data-login-content="Введите логин")
+						div.login-error-box
 
 					label.login-form__label-box
 						div.login-form__icon
 							svg.login-form__icon-svg
 								use(xlink:href='assets/img/sprite.svg#password')
-						input.login-form__input(type="text" placeholder="Пароль")
+						input.login-form__input(type="text" name="password" placeholder="Пароль" data-login-content="Введите пароль")
+						div.login-error-box
 
 					div.inspection-robot
-						label(id="people").inspection-robot__people-label
-							input.inspection-robot__people-input(type="checkbox" name="people")
-							| Я человек
+						input.inspection-robot__people-input(type="checkbox" id="people" name="people")
+						label(for="people").inspection-robot__people-label Я человек
 
 						p.inspection-robot__sure-caption Вы точно не робот?
 
 						div.inspection-robot__sure-labels
-							label.inspection-robot__sure-label()
-								input.inspection-robot__sure-input(type="radio" name="yes")
-								| Да
-
-							label.inspection-robot__sure-label()
-								input.inspection-robot__sure-input(type="radio" name="maybe")
-								| Не уверен
+							input.inspection-robot__sure-input(type="checkbox" id="robotYes" name="yes")
+							label.inspection-robot__sure-label(for="robotYes") Да
+							input.inspection-robot__sure-input(type="checkbox" id="robotMaybe" name="maybe")
+							label.inspection-robot__sure-label(for="robotMaybe") Не уверен
+					div.error-mes
 
 				div.wellcome-buttons
 					a.wellcome-buttons__link#toMain(href="#") На главную
-					a.wellcome-buttons__link(href="#") Войти
+					a.wellcome-buttons__link#enter(href="#") Войти
 
 		div.signature
 			span.signature__autor © МК
 			p.signature__caption.
 				создано с любовью в LoftSchool | 2017
+
+	div.preloader
+		div.preloader__percents
+		div.preloader__animation
+			<svg id="prel" viewBox="0 0 80 95.113">
+				<g class="wave-1">
+					<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005"/>
+				</g>
+				<g class="wave-2">
+					<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684"/>
+				</g>
+				<g class="wave-3">
+					<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362"/>
+				</g>
+			</svg>
