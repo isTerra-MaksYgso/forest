@@ -92,6 +92,12 @@ var BlogMenuModule = (function() {
 
 
 
+
+
+
+
+
+
 var mainMenuModule = (function() {
 	var init = function () {
 		_setUpListeners();
@@ -110,8 +116,17 @@ var mainMenuModule = (function() {
 	return {
 		init: init
 	};
-
 })();
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -135,34 +150,27 @@ var autorizateForm = (function() {
 		e.preventDefault();
 		var form = $('.login-form'),
 			url = 'autorizateForm.php',
-			defObj = _ajaxForm(form, url),
-			people = form.find('input[name="people"]'),
-			chekYes = form.find('input[name="yes"]'),
-			chekMaybe = form.find('input[name="maybe"]');
+			defObj = _ajaxForm(form, url);
 	}
 
 	var _ajaxForm = function (form, url) {
 		if (!validation.validateForm(form, 5, 20)) return false;
-		if (people.checked == true) {
-			console.log('try');
-		}
 
-		validation.ajaxForm(form, url);
+		var people = form.find('input[name="people"]'),
+			robot = form.find('input[name="robot"]:checked').val();
+
+		if ((people.prop('checked') == true) && (robot == 'yes')) {			
+			validation.ajaxForm(form, url);
+		} else {
+			alert('Вы не прошли проверку на робота :(');
+		}
 	}
 
 	return {
 		init: init
 	};
-
 })();
-
 autorizateForm.init();
-
-
-
-
-
-
 
 
 
@@ -203,57 +211,53 @@ var validation = (function() {
 
 
 	var validateForm = function (form, minL, maxL) {
-		var elements = form.find('input').not('input[type="file"], input[type="hidden"], input[type="checkbox"]'),
+		var elements = form.find('input').not('input[type="file"], input[type="hidden"], input[type="checkbox"], input[type="radio"]'),
 			valid = true,
 			textarea = form.find('textarea');
-		$('.login-error-box').css('display', 'none');
 
+		$('.login-error-box').css('display', 'none');
 		$.each(elements, function (index, val){
 			var element = $(val),
 				val = element.val();
 			if (val.length === 0 ) {
 				element.addClass('has-error');
-				element.next('.login-error-box')
-					.css('display', 'block')
-					.text(element.data("loginContent"));
+				element.next('.login-error-box').css('display', 'block').text(element.data("loginContent"));
 				valid = false;
 			} else {
-				if (minL <= val.length && val.length <= maxL) {
+				if ((minL <= val.length) && (val.length <= maxL)) {
 					element.addClass('not-error');
 				} else {
 					element.addClass('has-error');
-					element.next('.login-error-box')
-						.css('display', 'block')
-						.text('Поле должно содержать от '+minL+' до '+maxL+' символов');
+					element.next('.login-error-box').css('display', 'block').text('Поле должно содержать от '+minL+' до '+maxL+' символов');
 					valid = false;
 				}
 			}
 		});
 
+		if (!(form.is('textarea'))) return false;
+
 		if (textarea.val().length === 0) {
 			textarea.addClass('has-error');
-				textarea.next('.login-error-box')
-					.css('display', 'block')
-					.text(textarea.data("loginContent"));
+			textarea.next('.login-error-box')
+				.css('display', 'block')
+				.text(textarea.data("loginContent"));
 			valid = false;
 		} else {
 			if (textarea.val.length > 0 && textarea.val.length <= 3000) {
 				textarea.addClass('not-error');
 			} else {
 				textarea.addClass('has-error');
-					textarea.next('.login-error-box')
-						.css('display', 'block')
-						.text('Поле должно содержать от 1 до 3000 символов');
-					valid = false;
+				textarea.next('.login-error-box')
+					.css('display', 'block')
+					.text('Поле должно содержать от 1 до 3000 символов');
+				valid = false;
 			}
 		};
-
 
 		return valid;
 	};
 
 	var ajaxForm = function (form, url) {
-		console.log('var ajaxForm = function (form, url)');
 		data = form.serialize();
 
 		var result = $.ajax({
@@ -275,10 +279,25 @@ var validation = (function() {
 		ajaxForm: ajaxForm,
 		clearForm: clearForm
 	};
-
 })();
 
 validation.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -376,11 +395,11 @@ var preloader = (function(){
 
 		$('.preloader__percents').text(percents + '%');
 
-		/*if (percents >= 100) {
+		if (percents >= 100) {
 			setTimeout(function () {
 				preloader.fadeOut();
 			},3000);
-		}*/
+		}
 		if (percents >= 100) {
 			preloader.fadeOut();
 		}
@@ -430,39 +449,106 @@ $(function () {
 
 
 
-var SliderModule = (function() {
+/*var SliderModule = (function() {
 	var init = function () {
 		_setUpListeners();
 	};
 
+	var nextSlides = $('.my-works-slider__buttons-next .my-works-slider__element'),
+			prevSlides = $('.my-works-slider__buttons-prev .my-works-slider__element'),
+			isAnimate = false,
+			allSlides = $('.my-works-slider__elements').children('.my-works-slider__element').length/2,
+			animateTime = 300;
+
+	nextSlides.eq(0).css('top', '0');
+	prevSlides.eq(allSlides - 1).css('top', '0');
+
 	var _setUpListeners = function () {
-		$('slider-next').on('click', _next);
-		$('slider-prev').on('click', _prev);
+		$('.slider-next').on('click', function () {
+			// if (!isAnimate) {
+				// isAnimate = true;
+			_slider();
+			// }
+		});
 	}
 
-	var i = 0;
 
-	$('.slider-counter--first, .slider-counter--main').text(i+1);
-	$('.slider-counter--last').text('last');
+	var _slider = function () {
 
-	var _next = function () {
+		var i = 0,
+			lastNumber = allSlides - 1;
+			
 
+		nextSlides.css('opacity','1');
+		prevSlides.css('opacity','1');
+
+		if (i <= lastNumber) {
+
+			$(nextSlides.eq(i)).animate({
+				'top': '100%'
+			}, animateTime, function () {
+				$(this).css('opacity','0');
+				$(this).css('top','-100%');
+			});
+			$(nextSlides.eq(i+1)).animate({
+				'top': '0'
+			}, animateTime, function () {
+				isAnimate = false;
+			});
+
+			$(prevSlides.eq(lastNumber)).animate({
+				'top': '-100%'
+			}, animateTime, function () {
+				$(this).css('opacity','0');
+				$(this).css('top','100%');
+			});
+			$(prevSlides.eq(lastNumber-1)).animate({
+				'top': '0'
+			}, animateTime, function () {
+				isAnimate = false;
+			});
+
+			i++;
+			lastNumber--;
+
+		} else {
+
+			i = 0;
+			lastNumber = allSlides - 1;
+
+
+			$(nextSlides.eq(lastNumber)).animate({
+				'top': '100%'
+			}, animateTime, function () {
+				$(this).css('opacity','0');
+				$(this).css('top','-100%');
+			});
+			$(nextSlides.eq(i)).animate({
+				'top': '0'
+			}, animateTime, function () {
+				$(this).css('top','100%');
+			});
+
+			$(prevSlides.eq(i)).animate({
+				'top': '-100%'
+			}, animateTime);
+			$(prevSlides.eq(lastNumber)).animate({
+				'top': '0'
+			}, animateTime, function () {
+				isAnimate = false;
+			});
+
+			return isAnimate;
+		}
+		
 	};
-
-	var _prev = function () {
-
-	};
-
 	return {
 		init: init
 	};
 
 })();
 
-SliderModule.init();
-
-
-
+SliderModule.init();*/
 
 
 
@@ -512,6 +598,27 @@ $(document).ready(function () {
 		$('html, body').animate({scrollTop: 0},500);
 	});
 
+
+
+	//admin menu
+	$('.admin-tabs__link').on('click', function (e){
+		e.preventDefault();
+	});
+	$('.admin-current-block').eq(0).css('display', 'block');
+	$('.admin-tabs__item').on('click', function () {
+		var needBlockName = $(this).children('.admin-tabs__link'),
+			needBlockId = needBlockName.attr('href').replace('#', '');
+		$(this)
+			.addClass('admin-tabs__item--active')
+			.siblings('.admin-tabs__item')
+			.removeClass('admin-tabs__item--active');
+		$('#'+needBlockId)
+			.css('display', 'block')
+			.siblings('.admin-current-block')
+			.css('display', 'none');
+		
+	});//admin menu -> END
+
 	
 
 
@@ -520,5 +627,5 @@ $(document).ready(function () {
 
 	mainMenuModule.init();
 
-	SliderModule.init();
+	// SliderModule.init();
 });

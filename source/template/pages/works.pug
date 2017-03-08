@@ -51,12 +51,10 @@ block content
 
 			div.my-works-slider
 				div.my-works__title-slide
-					span.slider-counter.slider-counter--main
 					img(src="assets/img/forest_works.png", alt="work photo").my-works-slider__img
 				div.my-works-slider__buttons
 					div.my-works-slider__buttons-next
 						a.my-works-slider__element-link
-							span.slider-counter.slider-counter--first
 							+svgMix("slider__buttons-icon slider-next","portf_arrow_down")
 						ul.my-works-slider__elements
 							li.my-works-slider__element
@@ -67,7 +65,6 @@ block content
 								img(src="assets/img/slider/osen_risunok_progulka_82963_1366x768.jpg", alt="slider").my-works-slider__element-img
 					div.my-works-slider__buttons-prev
 						a.my-works-slider__element-link
-							span.slider-counter.slider-counter--last
 							+svgMix("slider__buttons-icon slider-prev","portf_arrow_up")
 						ul.my-works-slider__elements
 							li.my-works-slider__element
@@ -161,14 +158,10 @@ block content
 	div.preloader
 		div.preloader__percents
 		div.preloader__animation
-			<svg id="prel" viewBox="0 0 80 95.113">
-				<g class="wave-1">
-					<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005"/>
-				</g>
-				<g class="wave-2">
-					<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684"/>
-				</g>
-				<g class="wave-3">
-					<path fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362"/>
-				</g>
-			</svg>
+			svg(id="prel" viewBox="0 0 80 95.113")
+				g(class="wave-1")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005")
+				g(class="wave-2")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684")
+				g(class="wave-3")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362")

@@ -5,37 +5,77 @@ block variables
 
 block content
 	div.admin-top-block
-		h2.page__title-h2 Панель администрирования
-		a.back-to-site Вернуться на сайт
+		h2.admin-title Панель администрирования
+		a(href="#").back-to-site Вернуться на сайт
 
 	ul.admin-tabs
-		- var tabsItems = ["TAB 1","TAB 2","TAB 3","TAB 4"]
+		-
+			var tabsItems = [
+				{
+					title: "Обо мне", hrefName: "aboutAdm"
+				},
+				{
+					title: "Блог", hrefName: "blogAdm"
+				},
+				{
+					title: "Мои Работы", hrefName: "worksAdm"
+				}
+				]
 		each item in tabsItems
 			li.admin-tabs__item
-				a.admin-tabs__link= item
+				a(href="#"+item.hrefName).admin-tabs__link= item.title
 
 	div.admin-current-block-wrapper
-		p.admin-current-block__name Page "page-name"
+		div.admin-current-block#aboutAdm
+			p.admin-current-block__name Страница "Обо мне"
 
-		div.admin-current-block
-		-
-			var skillItems = {
-				Frontend: ["HTML5", "CSS3", "JavaScript & jQuery"],
-				Backend: ["PHP", "mySQL", "Node.js & npm", "Mongo.db"],
-				WorkFlow: ["Git", "Gulp","Bower"]
-			}
-		each value, key in skillItems
-			div.admin-current-block-settings
-				p.admin-settings__name= key
-				ul.admin-settings__list
-					each val in value
-						li.admin-settings__item
-							label.admin-settings__item-name= val
-								input.admin-settings__item-value(type="text")
-							span.admin-settings__item-interest %
+			div.admin-current-block__info
+				-
+					var skillItems = {
+						Frontend: ["HTML5", "CSS3", "JavaScript"],
+						WorkFlow: ["Git", "Gulp","Bower"],
+						Backend: ["PHP", "Node.js", "Mongo.db"]
+					}
+				each value, key in skillItems
+					div.admin-current-block-settings
+						p.admin-settings__name= key
+						ul.admin-settings__list
+							each val in value
+								li.admin-settings__item
+									label.admin-settings__item-name= val
+										input.admin-settings__item-value(type="text")
+									span.admin-settings__item-interest %
+
+			button.settings-save Сохранить
+
+		div.admin-current-block#blogAdm
+			p.admin-current-block__name Страница "Блог"
+
+			div.admin-current-block__info
+				p.add-article Добавить запись
+				form.add-article-form
+					input(type="text" placeholder="Название").add-article-form__name
+					input(type="text" placeholder="Дата").add-article-form__data
+					textarea(name="admin-article-content", cols="30", rows="10" placeholder="Содержание").add-article-form__content
+
+			button.settings-save Добавить
+
+		div.admin-current-block#worksAdm
+			p.admin-current-block__name Страница "Мои Работы"
+
+			div.admin-current-block__info
+				p.add-article Добавить работу
+				form.add-work-form
+					input(type="text" placeholder="Название").add-article-form__name
+					input(type="text" placeholder="Технологии").add-article-form__data
+
+					input.upload-file-admin-input(type="file" id="addImg-admin")
+					label.upload-file-admin-label(for="addImg-admin") Загрузить картинку
+
+			button.settings-save Добавить
 
 
 
 	div.admin-modal-win
 		p.admin-modal-win__caption Сообщение отправлено
-		a(href="").admin-modal-win__close
+		button.admin-modal-win__close Закрыть
