@@ -1,0 +1,99 @@
+extends _template
+
+block variables
+	- var title = 'admin panel'
+
+block content
+	div.admin-top-block
+		h2.admin-title Панель администрирования
+		a(href="/").back-to-site Вернуться на сайт
+
+	ul.admin-tabs
+		-
+			var tabsItems = [
+				{
+					title: "Обо мне", hrefName: "aboutAdm"
+				},
+				{
+					title: "Блог", hrefName: "blogAdm"
+				},
+				{
+					title: "Мои Работы", hrefName: "worksAdm"
+				}
+				]
+		each item in tabsItems
+			li.admin-tabs__item
+				a(href="#"+item.hrefName).admin-tabs__link= item.title
+
+	div.admin-current-block-wrapper
+		div.admin-current-block#aboutAdm
+			p.admin-current-block__name Страница "Обо мне"
+
+			div.admin-current-block__info
+				-
+					var categories = [];
+					categories.push(skills[0].cat);
+					var stek = false;
+
+					var inc = function (item) {
+						for (var i = 0; i < categories.length; i++) {
+							if (categories[i] == item.cat) {
+								stek = false;
+								return stek;
+							} else {
+								stek = true;
+							}
+						}
+						return stek;
+					}
+
+					for (var i = 0; i < skills.length; i++) {
+						inc(skills[i]);
+						if (stek == true) {
+							categories.push(skills[i].cat);
+						}
+					}
+
+				each item1 in categories
+					div.admin-current-block-settings
+						p.admin-settings__name= item1
+						ul.admin-settings__list
+							each item2 in skills
+								- if(item2.cat == item1)
+									li.admin-settings__item
+										label.admin-settings__item-name= item2.name
+											input.admin-settings__item-value(type="text" value=item2.val)
+										span.admin-settings__item-interest %
+
+			button.settings-save Сохранить
+
+		div.admin-current-block#blogAdm
+			p.admin-current-block__name Страница "Блог"
+
+			div.admin-current-block__info
+				p.add-article Добавить запись
+				form(action="/admin" method="POST").add-article-form#blogAddPost
+					input(type="text" name="name" placeholder="Название").add-article-form__name
+					input(type="text" name="date" placeholder="Дата").add-article-form__data
+					textarea(name="text", cols="30", rows="10" placeholder="Содержание").add-article-form__content
+
+					button(type="submit").settings-save Добавить
+
+		div.admin-current-block#worksAdm
+			p.admin-current-block__name Страница "Мои Работы"
+
+			div.admin-current-block__info
+				p.add-article Добавить работу
+				form(action="/admin" method="POST" enctype="multipart/form-data").add-work-form#adminUploadFile
+					input(type="text" name="name" placeholder="Название").add-article-form__name#file-desc
+					input(type="text" name="tech" placeholder="Технологии").add-article-form__data#file-tech
+					input.upload-file-admin-input#addImg-admin(type="file" name="photo")
+					label.upload-file-admin-label(for="addImg-admin") Загрузить картинку
+
+					button(type="submit").settings-save Добавить
+
+
+
+	div.admin-modal-win
+		p.admin-modal-win__caption Сообщение отправлено
+		button.admin-modal-win__close Закрыть

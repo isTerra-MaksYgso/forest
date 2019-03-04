@@ -1,0 +1,15 @@
+{
+	"upload": "public/upload",
+	"mail": {
+		"subject": "Сообщение от сайта портфолио",
+		"user": "",
+		"pass": ""
+	},
+	"db": {
+		"host": "localhost",
+		"port": "27017",
+		"name": "testDb",
+		"user": "",
+		"password": ""
+	}
+}

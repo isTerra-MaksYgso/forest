@@ -1,0 +1,87 @@
+extends _template
+
+block variables
+	- var title = 'Wellcome'
+
+block content
+	div.wellcome-wrapper
+
+		div.Background
+			canvas.Background-canvas
+
+		button.autorizate-button(value="auth") Авторизоваться
+
+		div.wellcome-box
+
+			div.wellcome-box-front
+				div.about-me-block
+					img.about-me-block__photo(src="/images/5093.jpg", alt="my photo")
+					h3.about-me-block__title Макс Колендюк
+					p.about-me-block__caption Личный сайт веб разработчика
+				
+				ul.social
+					-
+						var icons = [
+							{title: 'vk', href: 'https://vk.com/id297001161'},
+							{title: 'github', href: 'https://github.com/isTerra-MaksYgso'}
+						]
+
+					each icon in icons
+						li.social__item
+							a.social__link(href=icon.href)
+								+svgMix("social__icon", icon.title)
+
+				div.wellcome-buttons
+					a.wellcome-buttons__link(href="/works") Мои работы
+					a.wellcome-buttons__link(href="/about") Обо мне
+					a.wellcome-buttons__link(href="/blog") Блог
+
+			div.wellcome-box-login
+				h2.page__title-h2.autorise-title Авторизуйтесь
+				form.login-form(action="/")
+					label.login-form__label-box
+						div.login-form__icon
+							svg.login-form__icon-svg
+								use(xlink:href='/images/sprite.svg#login')
+						input.login-form__input(type="text" name="username" placeholder="Логин" data-login-content="Введите логин")
+						div.login-error-box
+
+					label.login-form__label-box
+						div.login-form__icon
+							svg.login-form__icon-svg
+								use(xlink:href='/images/sprite.svg#password')
+						input.login-form__input(type="text" name="password" placeholder="Пароль" data-login-content="Введите пароль")
+						div.login-error-box
+
+					div.inspection-robot
+						input.inspection-robot__people-input(type="checkbox" id="people" name="people")
+						label(for="people").inspection-robot__people-label Я человек
+
+						p.inspection-robot__sure-caption Вы точно не робот?
+
+						div.inspection-robot__sure-labels
+							input.inspection-robot__sure-input(type="radio" id="robotYes" name="robot" value="yes")
+							label.inspection-robot__sure-label(for="robotYes") Да
+							input.inspection-robot__sure-input(type="radio" id="robotMaybe" name="robot" value="maybe")
+							label.inspection-robot__sure-label(for="robotMaybe") Не уверен
+					div.error-mes
+
+				div.wellcome-buttons
+					a.wellcome-buttons__link#toMain(href="#") На главную
+					a.wellcome-buttons__link#enter(href="#") Войти
+
+		div.signature
+			span.signature__autor © МК
+			p.signature__caption.
+				создано с любовью в LoftSchool | 2017
+
+	div.preloader
+		div.preloader__percents
+		div.preloader__animation
+			svg(id="prel" viewBox="0 0 80 95.113")
+				g(class="wave-1")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005")
+				g(class="wave-2")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684")
+				g(class="wave-3")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362")

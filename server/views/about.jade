@@ -1,0 +1,218 @@
+extends _template
+
+block variables
+	- var title = 'About me'
+
+block content
+	header.header
+		div.header-main-bg
+		div.header-text-bg
+			+svgMix("header-text-bg__about","portfolio_header")
+
+		ul.social.social--header
+			-
+				var icons = [
+					{title: 'vk', href: 'https://vk.com/id297001161'},
+					{title: 'github', href: 'https://github.com/isTerra-MaksYgso'}
+				]
+
+			each icon in icons
+				li.social__item.social__item--header
+					a.social__link.social__link--header(href=icon.href)
+						+svgMix("social__icon social__icon--header", icon.title)
+
+		div.header__menu#main-menu
+			+svgMix("header__menu-icon", 'hamburger')
+
+		div.about-me-block
+			img.about-me-block__photo(src="/images/5093.jpg", alt="my photo")
+			h2.about-me-block__title Макс Колендюк
+			p.about-me-block__caption Личный сайт веб разработчика
+
+		div.header__down.header__down--about
+			+svgMix("header__down-icon","portf_arrow_down")
+		
+	section.about-me-more
+		+svgMix("about-me-more-triangles","bg_blog")
+		div.about-me-left-section
+			svg(viewbox="0 0 900 160" preserveAspectRetion="none").about-me-left-triangle
+				polygon(points="0,0 0,160, 900,160")
+
+			div.about-me-left-section__title
+				+svgMix("about-me-left-section__icon","about_header")
+				h1.page__title-h1.page__title-h1--black обо мне
+
+			div.about-me-article
+				img.about-me-article__photo(src="/images/about-photo.png", alt="my photo")
+				h2.page__title-h2.page__title-h2--black кто я
+				p.about-me-article__caption.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				p.about-me-article__caption.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				
+		div.about-me-skills
+			svg(viewbox="0 0 900 160" preserveAspectRetion="none").about-me-right-triangle
+				polygon(points="0,160 900,160, 900,0")
+
+			h2.page__title-h2.page__title-h2--black чем я могу быть вам полезен
+
+			p.about-me-skills__caption Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+			
+			div.skills-group
+				//- each item in skills
+				-
+					var categories = [];
+					categories.push(skills[0].cat);
+					var stek = false;
+
+					var inc = function (item) {
+						for (var i = 0; i < categories.length; i++) {
+							if (categories[i] == item.cat) {
+								stek = false;
+								return stek;
+							} else {
+								stek = true;
+							}
+						}
+						return stek;
+					}
+
+					for (var i = 0; i < skills.length; i++) {
+						inc(skills[i]);
+						if (stek == true) {
+							categories.push(skills[i].cat);
+						}
+					}
+				
+				each item1 in categories
+					ul.my-skills
+						p.my-skills__title= item1
+						ul.my-skills__list
+							each item2 in skills
+								- if(item2.cat == item1)
+									li.my-skills__circle
+										svg.my-skills__circle-svg(viewBox="0 0 120 120")
+											circle(cx="60" cy="60" r="50").my-skills__circle-svg-under
+											circle(cx="60" cy="60" r="50").my-skills__circle-svg-above
+										span.my-skills__circle-span= item2.name
+
+	section.about-me-map-wrapper
+
+		div.map-script#map
+			script.
+				google.maps.event.addDomListener(window, 'load', init);
+				function init() {
+					var mapOptions = { 
+						zoom: 12,
+						center: new google.maps.LatLng(46.663034, 32.614744),
+						styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#6c9c5a"},{"visibility":"on"},{"invert_lightness":true}]}]
+					};
+					var mapElement = document.getElementById('map');
+					var map = new google.maps.Map(mapElement, mapOptions);
+					var marker = new google.maps.Marker({
+						position: new google.maps.LatLng(46.663034, 32.614744),
+						map: map,
+						title: 'map contacts'
+					});
+				}
+
+
+		div.about-me-map
+			div.about-me-contacts
+				h2.page__title-h2.page__title-h2--black Контакты
+				
+				ul.about-me-contacts-list
+					-
+						var contactsItems = [
+							{
+								title: 'max13131315',
+								iconName: 'skype'
+							},
+							{
+								title: 'maks.kolendyuk@gmail.com',
+								iconName: 'envelope'
+							},
+							{
+								title: '+380*********',
+								iconName: 'phone'
+							},
+							{
+								title: 'Украина, Херсон',
+								iconName: 'map_marker'
+							}
+						]
+					each item in contactsItems
+						li.about-me-contacts-list-elem
+							svg.about-me-contacts-list__elem-icon
+								use(xlink:href='/images/sprite.svg#'+item.iconName)
+							span.about-me-contacts-list__elem-text= item.title
+
+		div.footer
+			div.footer-block
+				div.footer-block-elem.footer-element--light
+					p.footer-block-elem__caption Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+
+				div.footer-block-elem.footer-element--bold
+					ul.footer-menu
+						-
+							var footerMenuItems = [
+								{title: "Мои Работы", url: "/works"},
+								{title: "Блог", url: "/blog"},
+								{title: "Обо мне", url: "/about"},
+								{title: "Авторизация", url: "/"}
+							]
+						each item in footerMenuItems
+							li.footer-menu__elem
+								a.footer-menu__elem-link(href=item.url)= item.title
+
+
+					ul.social.social--footer
+						-
+							var icons = [
+								{title: 'vk', href: 'https://vk.com/id297001161'},
+								{title: 'github', href: 'https://github.com/isTerra-MaksYgso'}
+							]
+
+						each icon in icons
+							li.social__item.social__item--footer
+								a.social__link.social__link--footer(href=icon.href)
+									+svgMix("social__icon social__icon--footer", icon.title)
+
+				div.footer-block-elem.footer-element--lightItalic
+					p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					span.footer-block-elem__span - Lorem ipsum
+
+			div.footer-signature
+				span.footer-signature__autor © МК
+				p.footer-signature__caption.
+					создано с любовью в LoftSchool | 2017
+	div.main-menu
+		div.main-menu__section
+		-
+			var menuItems = [
+				{title: "Главная", url: "/"},
+				{title: "Обо мне", url: "/about"},
+				{title: "Блог", url: "/blog"},
+				{title: "Мои работы", url: "/works"}
+			]
+		div.main-menu__list
+			each item in menuItems
+				a(href=item.url).main-menu__link
+					h1.main-menu__link-title= item.title
+		div.main-menu__section
+
+	div.preloader
+		div.preloader__percents
+		div.preloader__animation
+			svg(id="prel" viewBox="0 0 80 95.113")
+				g(class="wave-1")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005")
+				g(class="wave-2")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684")
+				g(class="wave-3")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362")

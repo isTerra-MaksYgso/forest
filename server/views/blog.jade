@@ -1,0 +1,121 @@
+extends _template
+
+block variables
+	- var title = 'Blog'
+
+block content
+	header.header.header-blog
+		div.header-main-bg
+		div.header-text-bg.header-text-bg--blog
+			svg.header-text-bg__icon--blog
+				use(xlink:href='/images/sprite.svg#blog_header')
+
+		ul.social.social--header.social-header--blog
+			-
+				var icons = [
+					{title: 'vk', href: 'https://vk.com/id297001161'},
+					{title: 'github', href: 'https://github.com/isTerra-MaksYgso'}
+				]
+
+			each icon in icons
+				li.social__item.social__item--header
+					a.social__link.social__link--header(href=icon.href)
+						+svgMix("social__icon social__icon--header", icon.title)
+
+		div.header__menu.header__menu--blog#main-menu
+			+svgMix("header__menu-icon", 'hamburger')
+
+
+		div.about-me-block.about-me-block--blog
+			img.about-me-block__photo(src="/images/5093.jpg", alt="my photo")
+			h1.page__title-h1 Блог
+			p.about-me-block__caption Статьи которые я написал
+		div.header__down.header__down--blog
+			+svgMix("header__down-icon","portf_arrow_down")
+
+
+	section.my-articles-wrapper
+
+		div.my-articles
+
+			+svgMix("my-articles-triangles","bg_blog")
+
+			div.my-articles-name
+				ul.my-articles__list
+					each index, val in articles
+						li.my-articles__item
+							a.my-articles__link(href="#acticle-№-"+(val+1))= index.title
+
+			div.my-articles-block
+				
+				each index, val in articles
+					div.my-articles-itself(data-section="acticle-№-"+(val+1))
+						h2.page__title-h2= index.title
+						span.my-articles-itself__data= index.date
+						p.my-articles-itself__caption= index.text
+
+		div.footer
+			div.footer-block
+				div.footer-block-elem.footer-element--light
+					p.footer-block-elem__caption Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+
+				div.footer-block-elem.footer-element--bold
+					ul.footer-menu
+						-
+							var footerMenuItems = [
+								{title: "Мои Работы", url: "/works"},
+								{title: "Блог", url: "/blog"},
+								{title: "Обо мне", url: "/about"},
+								{title: "Авторизация", url: "/"}
+							]
+						each item in footerMenuItems
+							li.footer-menu__elem
+								a.footer-menu__elem-link(href=item.url)= item.title
+
+
+					ul.social.social--footer
+						-
+							var icons = [
+								{title: 'vk', href: 'https://vk.com/id297001161'},
+								{title: 'github', href: 'https://github.com/isTerra-MaksYgso'}
+							]
+
+						each icon in icons
+							li.social__item.social__item--footer
+								a.social__link.social__link--footer(href=icon.href)
+									+svgMix("social__icon social__icon--footer", icon.title)
+
+				div.footer-block-elem.footer-element--lightItalic
+					p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					span.footer-block-elem__span - Lorem ipsum
+
+			div.footer-signature
+				span.footer-signature__autor © МК
+				p.footer-signature__caption.
+					создано с любовью в LoftSchool | 2017
+
+	div.main-menu
+		div.main-menu__section
+		-
+			var menuItems = [
+				{title: "Главная", url: "/"},
+				{title: "Обо мне", url: "/about"},
+				{title: "Блог", url: "/blog"},
+				{title: "Мои работы", url: "/works"}
+			]
+		div.main-menu__list
+			each item in menuItems
+				a(href=item.url).main-menu__link
+					h1.main-menu__link-title= item.title
+		div.main-menu__section
+
+	div.preloader
+		div.preloader__percents
+		div.preloader__animation
+			svg(id="prel" viewBox="0 0 80 95.113")
+				g(class="wave-1")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005")
+				g(class="wave-2")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684")
+				g(class="wave-3")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362")

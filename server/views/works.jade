@@ -1,0 +1,174 @@
+extends _template
+
+block variables
+	- var title = 'Work'
+
+block content
+	header.header.header-blog
+		div.header-main-bg
+		div.header-text-bg
+			+svgMix("header-text-bg__about","portfolio_header")
+
+		ul.social.social--header
+			-
+				var icons = [
+					{title: 'vk', href: 'https://vk.com/id297001161'},
+					{title: 'github', href: 'https://github.com/isTerra-MaksYgso'}
+				]
+
+			each icon in icons
+				li.social__item.social__item--header
+					a.social__link.social__link--header(href=icon.href)
+						+svgMix("social__icon social__icon--header", icon.title)
+
+		div.header__menu#main-menu
+			+svgMix("header__menu-icon", 'hamburger')
+
+		div.about-me-block
+			img.about-me-block__photo(src="/images/5093.jpg", alt="my photo")
+			h2.about-me-block__title Макс Колендюк
+			p.about-me-block__caption Личный сайт веб разработчика
+
+		div.header__down.header__down--works
+			+svgMix("header__down-icon","portf_arrow_down")
+
+	section.my-works
+
+		+svgMix("my-works-triangles","bg_blog")
+
+		div.my-works__title
+			+svgMix("my-works__title-icon","works_header")
+			h1.page__title-h1 мои работы
+
+		div.my-works-block
+			.my-works-itself-wrapper
+				each index in pics
+					div.my-works-itself
+						h2.page__title-h2.page__title-h2--black= index.name
+						p.my-works-itself__caption= index.tech
+						a(href="#").my-works-itself__link Посмотреть сайт
+							+svgMix("my-works-itself__link-icon","link")
+
+			div.my-works-slider
+				div.my-works__title-slide
+					//- /images/forest_works.png
+					img(src="", alt="work photo").my-works-slider__img
+				div.my-works-slider__buttons
+					div.my-works-slider__buttons-next
+						a.my-works-slider__element-link
+							+svgMix("slider__buttons-icon slider-next","portf_arrow_down")
+						ul.my-works-slider__elements
+							each pic in pics
+								li.my-works-slider__element
+									img(src=pic.picPath , alt="slider").my-works-slider__element-img
+					div.my-works-slider__buttons-prev
+						a.my-works-slider__element-link
+							+svgMix("slider__buttons-icon slider-prev","portf_arrow_up")
+						ul.my-works-slider__elements
+							each pic in pics
+								li.my-works-slider__element
+									img(src=pic.picPath , alt="slider").my-works-slider__element-img
+
+	section.my-works-gossip-wrapper
+
+		div.my-works-gossip
+			h1.page__title-h1.page__title-h1--black что обо мне говорят
+			+svgMix("my-works-gossip__icon","about_header")
+
+			div.my-works-gossip__list
+
+				div.my-works-gossip__item
+					img.my-works-gossip__item-img
+					p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					span.my-works-gossip__item-name People Name
+					span.my-works-gossip__item-position - People position
+
+				div.my-works-gossip__item
+					img.my-works-gossip__item-img
+					p.my-works-gossip__item-caption Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					span.my-works-gossip__item-name People Name
+					span.my-works-gossip__item-position - People position
+
+			form.contact-me-form#mailMeForm(action="/works")
+				h2.page__title-h2.page__title-h2--black связаться со мной
+
+				input.contact-me-form__input(type="text" placeholder="Имя" name="name" data-login-content="Введите ваше имя")
+				div.login-error-box.login-error-box--works
+				input.contact-me-form__input(type="email" placeholder="Email" name="email" data-login-content="Введите ваш еМаил")
+				div.login-error-box.login-error-box--works
+				textarea.contact-me-form__textarea(name="text", cols="30", rows="10" placeholder="Ваше сообщение" data-login-content="Введите ваше сообщение")
+				div.login-error-box.login-error-box--works
+				div.contact-me-form__buttons
+					a(href="#").contact-me-form__link#submitMeForm Отправить
+					a(href="#").contact-me-form__link#resetForm Очистить
+
+			div.go-top
+				+svgMix("go-top__icon","portf_arrow_up")
+
+
+		div.footer
+			div.footer-block
+				div.footer-block-elem.footer-element--light
+					p.footer-block-elem__caption Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+
+				div.footer-block-elem.footer-element--bold
+					ul.footer-menu
+						-
+							var footerMenuItems = [
+								{title: "Мои Работы", url: "/works"},
+								{title: "Блог", url: "/blog"},
+								{title: "Обо мне", url: "/about"},
+								{title: "Авторизация", url: "/"}
+							]
+						each item in footerMenuItems
+							li.footer-menu__elem
+								a.footer-menu__elem-link(href=item.url)= item.title
+
+
+					ul.social.social--footer
+						-
+							var icons = [
+								{title: 'vk', href: 'https://vk.com/id297001161'},
+								{title: 'github', href: 'https://github.com/isTerra-MaksYgso'}
+							]
+
+						each icon in icons
+							li.social__item.social__item--footer
+								a.social__link.social__link--footer(href=icon.href)
+									+svgMix("social__icon social__icon--footer", icon.title)
+
+
+				div.footer-block-elem.footer-element--lightItalic
+					p.footer-block-elem__caption Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					span.footer-block-elem__span - Lorem ipsum
+
+			div.footer-signature
+				span.footer-signature__autor © МК
+				p.footer-signature__caption.
+					создано с любовью в LoftSchool | 2017
+
+	div.main-menu
+		div.main-menu__section
+		-
+			var menuItems = [
+				{title: "Главная", url: "/"},
+				{title: "Обо мне", url: "/about"},
+				{title: "Блог", url: "/blog"},
+				{title: "Мои работы", url: "/works"}
+			]
+		div.main-menu__list
+			each item in menuItems
+				a(href=item.url).main-menu__link
+					h1.main-menu__link-title= item.title
+		div.main-menu__section
+
+	div.preloader
+		div.preloader__percents
+		div.preloader__animation
+			svg(id="prel" viewBox="0 0 80 95.113")
+				g(class="wave-1")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005")
+				g(class="wave-2")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,61.684c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801						c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684")
+				g(class="wave-3")
+					path(fill="none" stroke-width="3.9003" stroke-miterlimit="10" d="M0,85.362c6.663,0,6.663,7.801,13.327,7.801 c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801 c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362")
